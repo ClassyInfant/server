@@ -1,0 +1,84 @@
+{
+  "area_memory": {
+    "Dungeon1": {
+      "hidden_objects": {
+        "12": true,
+        "16": true,
+        "26": true,
+        "29": true,
+        "3": true,
+        "30": true,
+        "35": true,
+        "39": true,
+        "44": true,
+        "9": true
+      }
+    },
+    "ForestBBS": {
+      "hidden_objects": {
+        "29": true,
+        "33": true
+      }
+    },
+    "SubNet2": {
+      "hidden_objects": []
+    },
+    "Transport": {
+      "hidden_objects": {
+        "12": true
+      }
+    },
+    "default": {
+      "hidden_objects": {
+        "109": true,
+        "73": true,
+        "80": true
+      }
+    }
+  },
+  "emails": {
+    "by_id": []
+  },
+  "fragments": 0,
+  "health": 360,
+  "items": {
+    "2": 3,
+    "5": 1,
+    "8": 1
+  },
+  "max_health": 360,
+  "meta": {
+    "joins": 5
+  },
+  "money": 6110,
+  "permissions": {
+    "BBS": {
+      "CanDelete": false,
+      "CanEdit": false,
+      "CanPin": false,
+      "CanPost": false,
+      "CanRead": true
+    },
+    "Commands": {
+      "CanAccess": false
+    }
+  },
+  "quests": {
+    "Clean Junk": {
+      "accepted": true,
+      "cleaned": true,
+      "rewarded": true
+    },
+    "Stuck Prog": {
+      "accepted": true,
+      "freed": true,
+      "rewarded": true
+    }
+  },
+  "role": "user",
+  "rushroads": {
+    "cleared": [],
+    "food": 50
+  },
+  "tokens": 0
+}

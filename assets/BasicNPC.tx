@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template>
+ <object name="Info_Navi" type="NPC">
+  <properties>
+   <property name="Asset Name" value="prog"/>
+   <property name="Dialogue Type" value="random"/>
+   <property name="Direction" value="Down"/>
+   <property name="Text 1" value="Welcome to ONB.clewis.dad!"/>
+   <property name="Text 2" value="It's pretty lonely here!"/>
+  </properties>
+  <point/>
+ </object>
+</template>

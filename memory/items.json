@@ -1,0 +1,37 @@
+{
+  "2": {
+    "description": "Gives you +20 HP",
+    "key_item": false,
+    "name": "HPMem"
+  },
+  "3": {
+    "description": "Junk you picked up",
+    "key_item": false,
+    "name": "Junk"
+  },
+  "4": {
+    "description": "Unlocks Purple Data.",
+    "key_item": false,
+    "name": "Unlocker"
+  },
+  "5": {
+    "description": "Grants access to Subnet 2",
+    "key_item": true,
+    "name": "Lvl2_Key"
+  },
+  "6": {
+    "description": "Grants access to Subnet 0",
+    "key_item": true,
+    "name": "Lvl0_Key"
+  },
+  "7": {
+    "description": "???",
+    "key_item": false,
+    "name": "Mmbr_Card"
+  },
+  "8": {
+    "description": "A key to unlock encryption cubes.",
+    "key_item": true,
+    "name": "Ecrypt_Key"
+  }
+}

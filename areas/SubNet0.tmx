@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.12.2" orientation="isometric" renderorder="right-down" width="30" height="30" tilewidth="64" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="24">
+ <properties>
+  <property name="Background" value="custom"/>
+  <property name="Background Animation" value="/server/assets/bg/08b-underground.animation"/>
+  <property name="Background Texture" value="/server/assets/bg/08b-underground.png"/>
+  <property name="Forced Base HP" type="int" value="300"/>
+  <property name="Full Heal" type="bool" value="true"/>
+  <property name="Honor HPMem" type="bool" value="true"/>
+  <property name="Name" value="CL_SubNet0"/>
+  <property name="Song" value="/server/assets/exe6-wwwnohonkyochi.ogg"/>
+ </properties>
+ <tileset firstgid="1" source="../assets/UndernetTiles.tsx"/>
+ <tileset firstgid="21" source="../assets/hp_warp.tsx"/>
+ <tileset firstgid="26" source="../assets/SDoor.tsx"/>
+ <tileset firstgid="56" source="../assets/HoloPanelz.tsx"/>
+ <tileset firstgid="66" source="../assets/Blank.tsx"/>
+ <tileset firstgid="67" source="../assets/ezlibs-assets/ezmystery/BlueMysteryData.tsx"/>
+ <tileset firstgid="75" source="../assets/vendor_desk.tsx"/>
+ <tileset firstgid="79" source="../assets/kabob.tsx"/>
+ <tileset firstgid="80" source="../assets/water_tiles.tsx"/>
+ <tileset firstgid="84" source="../assets/rainbow_floor.tsx"/>
+ <tileset firstgid="100" source="../assets/UndernetStatue.tsx"/>
+ <tileset firstgid="101" source="../assets/BattleMachineBN4.tsx"/>
+ <tileset firstgid="104" source="../assets/BBS-BN4.tsx"/>
+ <tileset firstgid="105" source="../assets/BBS.tsx"/>
+ <tileset firstgid="106" source="../assets/WaterTilesV2.tsx"/>
+ <tileset firstgid="142" source="../assets/tree.tsx"/>
+ <tileset firstgid="150" source="../assets/gate.tsx"/>
+ <tileset firstgid="155" source="../assets/EXE6_boss_markers.tsx"/>
+ <layer id="1" name="Ground1" width="30" height="30">
+  <data encoding="csv">
+0,0,0,0,0,0,3,4,3,4,3,0,3,4,4,4,3,0,3,4,3,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,4,8,4,8,4,1,4,8,8,8,4,1,4,115,4,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,3,4,3,4,3,0,4,8,8,8,4,0,3,4,3,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,3,4,4,4,3,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,1,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,3,4,4,4,4,1,0,0,4,0,0,1,4,4,4,4,3,0,0,0,0,0,0,0,
+0,0,0,0,0,0,4,0,0,0,0,4,0,0,4,0,0,4,0,0,0,0,4,0,0,0,0,0,0,0,
+0,0,0,0,0,0,4,0,2,3,0,4,0,0,4,0,0,4,0,3,2,0,4,0,0,0,0,0,0,0,
+0,0,0,0,0,0,4,0,3,2,0,4,4,4,1,4,4,4,0,2,3,0,4,0,0,0,0,0,0,0,
+0,0,0,0,0,0,4,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,
+0,0,0,0,0,0,1,4,4,4,0,3,4,4,4,4,4,3,0,4,4,4,1,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,4,0,4,0,0,3,0,0,4,0,4,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,4,0,4,0,2,1,2,0,4,0,4,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,1,3,4,3,1,1,1,3,4,3,1,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,4,0,4,0,2,1,2,0,4,0,4,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,4,0,4,0,0,3,0,0,4,0,4,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,1,4,4,4,0,3,4,4,4,4,4,3,0,4,4,4,1,0,0,0,0,0,0,0,
+0,0,0,0,0,0,4,0,0,0,0,0,0,0,3,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,
+0,0,0,0,0,0,4,0,3,2,0,4,4,4,1,4,4,4,0,2,3,0,4,0,0,0,0,0,0,0,
+0,0,0,0,0,0,4,0,2,3,0,4,0,0,66,0,0,4,0,3,2,0,4,0,0,0,0,0,0,0,
+0,0,0,0,0,0,4,0,0,0,0,4,0,0,66,0,0,4,0,0,0,0,4,0,0,0,0,0,0,0,
+0,0,0,0,0,0,3,4,4,4,4,1,0,0,66,0,0,1,4,4,4,4,3,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,66,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,1,0,0,0,0,0,0,66,66,66,66,66,66,66,66,66,66,0,0,0,1,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,66,0,0,66,0,0,0,0,66,0,0,0,0,66,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,66,0,0,0,0,66,66,66,66,66,66,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup id="2" name="Ground1">
+  <object id="1" name="Return" gid="22" x="432" y="432" width="114" height="64"/>
+  <object id="3" type="Mystery Datum" gid="67" x="784" y="784" width="14" height="43">
+   <properties>
+    <property name="Name" value="Mmbr_Card"/>
+    <property name="Once" type="bool" value="true"/>
+    <property name="Type" value="item"/>
+   </properties>
+  </object>
+  <object id="11" gid="100" x="240" y="64" width="78" height="92"/>
+  <object id="12" name="RebattleBosses" gid="2147483750" x="280" y="56" width="32" height="33">
+   <properties>
+    <property name="Interact Relay" type="object" value="17"/>
+   </properties>
+  </object>
+  <object id="13" name="Fishing" type="FishBBS" gid="2147483752" x="648" y="-6" width="32" height="56">
+   <properties>
+    <property name="Color" type="color" value="#ffa602cf"/>
+    <property name="Name" value="Fish_Records"/>
+   </properties>
+  </object>
+  <object id="14" name="Sub0BBS" type="Board" gid="2147483753" x="540.5" y="-46.5" width="40" height="53">
+   <properties>
+    <property name="BBS" type="bool" value="true"/>
+    <property name="Color" type="color" value="#ffa602cf"/>
+    <property name="Name" value="Sub0 BBS"/>
+    <property name="Post Limit" type="int" value="30"/>
+   </properties>
+  </object>
+  <object id="15" name="Fishing Spot" type="Water" gid="146" x="624" y="48" width="64" height="64" visible="0">
+   <properties>
+    <property name="Water" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="16" type="Checkpoint" gid="150" x="472" y="232" width="34" height="52">
+   <properties>
+    <property name="Description" value="Members only."/>
+    <property name="Key Name" value="Mmbr_Card"/>
+    <property name="Once" type="bool" value="true"/>
+    <property name="Required Keys" type="int" value="1"/>
+    <property name="Unlock Failed Message" value="No entry."/>
+    <property name="Unlock Message" value="Welcome."/>
+   </properties>
+  </object>
+  <object id="17" name="BattleNPC" type="NPC" x="264" y="-24">
+   <properties>
+    <property name="Asset Name" value="Blank"/>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Direction" value="Down"/>
+    <property name="Mugshot" value="ranked-navi-bn3"/>
+    <property name="Next 1" type="object" value="20"/>
+    <property name="Text 1" value="This is the battle simulator."/>
+   </properties>
+   <point/>
+  </object>
+  <object id="18" type="Radius Warp" x="464" y="464">
+   <properties>
+    <property name="Activation Radius" type="float" value="0.7"/>
+    <property name="Target Area" value="ForestBBS"/>
+    <property name="Target Object" type="object" value="11"/>
+    <property name="Warp Out" type="bool" value="true"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="19" gid="161" x="288" y="32" width="64" height="32"/>
+  <object id="20" name="Ask" type="Dialogue" x="264" y="-48">
+   <properties>
+    <property name="Dialogue Type" value="quiz"/>
+    <property name="Mugshot" value="ranked-navi-bn3"/>
+    <property name="Next 1" type="object" value="21"/>
+    <property name="Next 2" type="object" value="22"/>
+    <property name="Next 3" type="object" value="23"/>
+    <property name="Text 1" value="Battle"/>
+    <property name="Text 2" value="About"/>
+    <property name="Text 3" value="Cancel"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="21" name="BattleMenu" type="Dialogue" x="216" y="-56">
+   <properties>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Mugshot" value="ranked-navi-bn3"/>
+    <property name="Text 1" value="Unfortunately this has not been implemented."/>
+   </properties>
+   <point/>
+  </object>
+  <object id="22" name="Info" type="Dialogue" x="264" y="-72">
+   <properties>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Mugshot" value="ranked-navi-bn3"/>
+    <property name="Text 1" value="This is a battle simulator. You can rebattle any boss encounter you have beaten. Each battle costs 1 Btl_Pass. There are no loss penalties."/>
+   </properties>
+   <point/>
+  </object>
+  <object id="23" name="Cancel" type="Dialogue" x="312" y="-56">
+   <properties>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Mugshot" value="ranked-navi-bn3"/>
+    <property name="Text 1" value="Very well."/>
+   </properties>
+   <point/>
+  </object>
+ </objectgroup>
+</map>

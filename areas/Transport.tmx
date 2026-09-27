@@ -1,0 +1,744 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.12.2" orientation="isometric" renderorder="right-down" width="30" height="30" tilewidth="64" tileheight="32" infinite="0" nextlayerid="15" nextobjectid="82">
+ <properties>
+  <property name="Background" value="custom"/>
+  <property name="Background Animation" value="/server/assets/bg/07d-skyarea.animation"/>
+  <property name="Background Texture" value="/server/assets/bg/07d-skyarea.png"/>
+  <property name="Forced Base HP" type="int" value="300"/>
+  <property name="Full Heal" type="bool" value="true"/>
+  <property name="Honor HPMem" type="bool" value="true"/>
+  <property name="Name" value="TransprtLyr"/>
+  <property name="Song" value="/server/assets/exe2-densankuukou.ogg"/>
+ </properties>
+ <tileset firstgid="1" source="../assets/central_platform.tsx"/>
+ <tileset firstgid="241" source="../assets/central_arrows2.tsx"/>
+ <tileset firstgid="245" source="../assets/indy-trains/Cyber_Rail_offset.tsx"/>
+ <tileset firstgid="246" source="../assets/DenTownStairs.tsx"/>
+ <tileset firstgid="255" source="../assets/Custom_Central_Tiles.tsx"/>
+ <tileset firstgid="263" source="../assets/Bus Stop.tsx"/>
+ <tileset firstgid="264" source="../assets/indy-trains/platforms.tsx"/>
+ <tileset firstgid="268" source="../assets/Junkpiles.tsx"/>
+ <tileset firstgid="270" source="../assets/bn6_cube_gray.tsx"/>
+ <tileset firstgid="284" source="../assets/bn6_securitycube.tsx"/>
+ <tileset firstgid="298" source="../assets/Roadblock.tsx"/>
+ <tileset firstgid="300" source="../assets/BBS.tsx"/>
+ <tileset firstgid="301" source="../assets/warp.tsx"/>
+ <tileset firstgid="307" source="../assets/CentralCounter.tsx"/>
+ <layer id="1" name="Ground 1" width="30" height="30">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,97,97,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,245,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup id="2" name="Ground 1"/>
+ <layer id="3" name="Ground 2" width="30" height="30" offsetx="0" offsety="-16">
+  <data encoding="csv">
+0,0,0,2147483893,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,2147483893,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,2147483893,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,2147483893,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,2147483893,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,2147483893,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,2147483893,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,2147483893,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,2147483893,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,2147483893,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,2147483893,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,2147483893,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,2147483893,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,2147483893,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,2147483893,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,2147483893,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,2147483893,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,2147483893,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,2147483893,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,2147483893,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,245,0,0,0,0,0,0,0,
+0,0,0,2147483893,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,2147483893,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,2147483893,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,2147483893,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,2147483893,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,2147483893,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,2147483893,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,2147483893,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,2147483893,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,2147483893,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup id="4" name="Ground 2" offsetx="0" offsety="-16"/>
+ <layer id="5" name="Ground 3" width="30" height="30" offsetx="0" offsety="-32">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,264,265,0,0,264,265,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,62,63,63,63,63,63,63,73,0,0,62,63,63,63,73,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,61,72,72,72,72,72,72,83,93,101,61,72,72,72,83,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,61,72,72,72,72,72,72,83,0,0,71,81,81,81,82,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,71,81,81,81,81,81,81,82,0,0,0,0,103,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,88,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,98,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,246,88,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,98,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,88,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,98,0,0,0,0,0,0,
+84,99,89,99,89,99,89,99,89,99,89,99,89,99,89,99,89,99,89,99,89,99,89,112,89,99,89,99,89,65,
+0,0,0,0,0,0,0,0,0,0,0,0,0,85,0,0,0,0,0,0,0,0,0,98,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,88,0,0,0,0,0,0,0,0,0,88,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,74,0,0,0,0,0,0,0,0,0,98,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,246,88,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,98,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,88,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,92,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,62,63,63,63,63,63,63,63,63,63,63,63,63,63,73,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,71,81,81,81,81,81,81,81,81,81,81,81,81,81,82,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup id="6" name="Ground 3" offsetx="0" offsety="-32">
+  <object id="1" gid="244" x="920" y="424" width="96" height="64"/>
+  <object id="7" gid="263" x="392" y="136" width="16" height="53"/>
+  <object id="8" gid="263" x="520" y="136" width="16" height="53"/>
+  <object id="12" gid="270" x="488" y="712" width="48" height="52">
+   <properties>
+    <property name="Interact Relay" type="object" value="52"/>
+   </properties>
+  </object>
+  <object id="13" gid="270" x="360" y="712" width="48" height="52">
+   <properties>
+    <property name="Interact Relay" type="object" value="42"/>
+   </properties>
+  </object>
+  <object id="14" gid="270" x="360" y="752" width="48" height="52">
+   <properties>
+    <property name="Interact Relay" type="object" value="42"/>
+   </properties>
+  </object>
+  <object id="17" gid="284" x="816" y="752" width="48" height="52">
+   <properties>
+    <property name="Interact Relay" type="object" value="42"/>
+   </properties>
+  </object>
+  <object id="18" name="Cargo1" type="Cargo Train" x="512" y="832">
+   <properties>
+    <property name="Color" value="Red"/>
+    <property name="Direction" value="Up Left"/>
+    <property name="End" value="0,25"/>
+    <property name="Speed" value="1"/>
+    <property name="Start" value="29,25"/>
+    <property name="Train Z" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="19" name="Cargo2" type="Cargo Train" x="520" y="896">
+   <properties>
+    <property name="Color" value="Cyan"/>
+    <property name="Direction" value="Down Right"/>
+    <property name="End" value="29,27"/>
+    <property name="Speed" value="1.5"/>
+    <property name="Start" value="0,27"/>
+    <property name="Train Z" value="1"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="21" name="T/F SubNet2" type="Radius Warp" x="944" y="464">
+   <properties>
+    <property name="Activation Radius" type="float" value="0.5"/>
+    <property name="Arrival Animation" value="arrow_down_right_in"/>
+    <property name="Leave Animation" value="arrow_down_right_out"/>
+    <property name="Target Area" value="SubNet2"/>
+    <property name="Target Object" type="object" value="30"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="2" gid="241" x="-40" y="424" width="96" height="64"/>
+  <object id="22" gid="2147483946" x="48" y="464" width="64" height="64">
+   <properties>
+    <property name="Interact Relay" type="object" value="38"/>
+   </properties>
+  </object>
+  <object id="24" name="TransportBBS" type="Board" gid="2147483948" x="704" y="88" width="40" height="53">
+   <properties>
+    <property name="BBS" type="bool" value="true"/>
+    <property name="Color" type="color" value="#ffefe55c"/>
+    <property name="Name" value="Transport Board"/>
+    <property name="Post Limit" type="int" value="30"/>
+    <property name="Postable" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="26" name="DockNavi" type="NPC" x="416" y="736">
+   <properties>
+    <property name="Asset Name" value="official-navi-exe4_orange"/>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Direction" value="Down Left"/>
+    <property name="Next Waypoint 1" type="object" value="28"/>
+    <property name="Text 1" value="Shipments of encrypted data show up here."/>
+    <property name="Wait Time" type="int" value="3"/>
+    <property name="Waypoint Type" value="first"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="27" name="Waypoint" x="488" y="736">
+   <properties>
+    <property name="Next Waypoint 1" type="object" value="28"/>
+    <property name="Next Waypoint 2" type="object" value="29"/>
+    <property name="Wait Time" type="int" value="3"/>
+    <property name="Waypoint Type" value="random"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="29" name="Waypoint" x="784" y="736">
+   <properties>
+    <property name="Next Waypoint 1" type="object" value="28"/>
+    <property name="Next Waypoint 2" type="object" value="27"/>
+    <property name="Wait Time" type="int" value="3"/>
+    <property name="Waypoint Type" value="random"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="28" name="Waypoint" x="384" y="736">
+   <properties>
+    <property name="Next Waypoint 1" type="object" value="27"/>
+    <property name="Next Waypoint 2" type="object" value="29"/>
+    <property name="Wait Time" type="int" value="3"/>
+    <property name="Waypoint Type" value="random"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="30" name="DockHeel" type="NPC" x="816" y="712">
+   <properties>
+    <property name="Asset Name" value="heel-navi-exe4_black"/>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Direction" value="Down Left"/>
+    <property name="Next 1" type="object" value="31"/>
+    <property name="Text 1" value="What?"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="31" type="Dialogue" x="856" y="712">
+   <properties>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Text 1" value="I'm just waiting for a package to arrive."/>
+   </properties>
+   <point/>
+  </object>
+  <object id="39" name="GMNavi" type="NPC" x="680" y="136">
+   <properties>
+    <property name="Asset Name" value="GMNavi"/>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Direction" value="Down Left"/>
+    <property name="Next 1" type="object" value="62"/>
+    <property name="Text 1" value="Your safety is our priotity."/>
+   </properties>
+   <point/>
+  </object>
+  <object id="40" type="Dialogue" x="648" y="136">
+   <properties>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Text 1" value="Although I'm the only one in this area..."/>
+   </properties>
+   <point/>
+  </object>
+  <object id="41" name="TrainGirl" type="NPC" x="808" y="136">
+   <properties>
+    <property name="Asset Name" value="female-navi-exe5_purple"/>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Direction" value="Up Right"/>
+    <property name="Next 1" type="object" value="59"/>
+    <property name="Text 1" value="I like trains."/>
+   </properties>
+   <point/>
+  </object>
+  <object id="42" name="Cargo" type="NPC" x="544" y="672">
+   <properties>
+    <property name="Asset Name" value="Blank"/>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Direction" value="Down"/>
+    <property name="Mugshot" value="player"/>
+    <property name="Text 1" value="There's data locked in these cubes."/>
+   </properties>
+   <point/>
+  </object>
+  <object id="45" name="TrainNotHere" type="NPC" x="480" y="192">
+   <properties>
+    <property name="Asset Name" value="red-prog"/>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Direction" value="Down Right"/>
+    <property name="Text 1" value="The train is down for maintanence."/>
+   </properties>
+   <point/>
+  </object>
+  <object id="47" name="T/F SubNet1" type="Radius Warp" gid="302" x="416" y="544" width="61" height="32">
+   <properties>
+    <property name="Activation Radius" type="float" value="0.9"/>
+    <property name="Target Area" value="Dungeon1"/>
+    <property name="Target Object" type="object" value="60"/>
+    <property name="Warp Out" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="48" name="Return" x="432" y="528">
+   <point/>
+  </object>
+  <object id="49" gid="2147483955" x="788.5" y="170" width="32" height="32">
+   <properties>
+    <property name="Interact Relay" type="object" value="51"/>
+   </properties>
+  </object>
+  <object id="50" gid="2147483956" x="784" y="186.5" width="32" height="32">
+   <properties>
+    <property name="Interact Relay" type="object" value="51"/>
+   </properties>
+  </object>
+  <object id="51" name="NurseNavi" type="NPC" x="811" y="173.5">
+   <properties>
+    <property name="Asset Name" value="Nurse Navi"/>
+    <property name="Dialogue Type" value="random"/>
+    <property name="Direction" value="Up Left"/>
+    <property name="Text 1" value="I fix up navi that get themselves into trouble."/>
+    <property name="Text 2" value="Try finding more HP Mems."/>
+    <property name="Text 3" value="Be careful there's no much security here."/>
+   </properties>
+   <point/>
+  </object>
+  <object id="76" name="TrappedProg" type="Dialogue" x="472" y="664">
+   <properties>
+    <property name="Dialogue Type" value="quest_switch"/>
+    <property name="Quest Name" value="Stuck Prog"/>
+    <property name="accepted" type="object" value="68"/>
+    <property name="unaccepted" type="object" value="81"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="54" name="StartQuest" type="Dialogue" x="480" y="672">
+   <properties>
+    <property name="Dialogue Type" value="quest_event"/>
+    <property name="Event Value" value="accepted"/>
+    <property name="Quest Name" value="Stuck Prog"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="72" name="UpdateQuest" type="Dialogue" x="384" y="664">
+   <properties>
+    <property name="Dialogue Type" value="quest_event"/>
+    <property name="Event Value" value="freed"/>
+    <property name="Quest Name" value="Stuck Prog"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="58" name="QuestPending" type="Dialogue" x="424" y="688">
+   <properties>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Mugshot" value="player"/>
+    <property name="Text 1" value="I can still hear something in this cube."/>
+   </properties>
+   <point/>
+  </object>
+  <object id="59" type="Dialogue" x="800" y="64">
+   <properties>
+    <property name="Dialogue Type" value="quest_switch"/>
+    <property name="Quest Name" value="Stuck Prog"/>
+    <property name="accepted" type="object" value="60"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="62" type="Dialogue" x="656" y="72">
+   <properties>
+    <property name="Dialogue Type" value="quest_switch"/>
+    <property name="Quest Name" value="Stuck Prog"/>
+    <property name="accepted" type="object" value="77"/>
+    <property name="freed" type="object" value="71"/>
+    <property name="rewarded" type="object" value="40"/>
+    <property name="unaccepted" type="object" value="40"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="60" name="HeardProg" type="Dialogue" x="800" y="32">
+   <properties>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Text 1" value="The other day by the data docks I thought I heard something in one of the cubes. I wonder if I should have told security?"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="63" name="HeardProg" type="Dialogue" x="656" y="32">
+   <properties>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Next 1" type="object" value="64"/>
+    <property name="Text 1" value="What you heard something inside of a cube on the data dock?"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="64" name="ProveYourself" type="Dialogue" x="640" y="24">
+   <properties>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Next 1" type="object" value="65"/>
+    <property name="Text 1" value="I can't leave my post to check."/>
+   </properties>
+   <point/>
+  </object>
+  <object id="65" name="GiveKey" type="Dialogue" x="624" y="24">
+   <properties>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Next 1" type="object" value="66"/>
+    <property name="Text 1" value="Don't tell anyone I've done this but take this key and open the cube. Let me know what you find."/>
+   </properties>
+   <point/>
+  </object>
+  <object id="66" name="GiveKey" type="Dialogue" x="600" y="24">
+   <properties>
+    <property name="Dialogue Type" value="item"/>
+    <property name="Dont Notify" type="bool" value="false"/>
+    <property name="Item 1" type="object" value="67"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="67" name="Key" type="Item" x="576" y="32">
+   <properties>
+    <property name="Amount" type="int" value="1"/>
+    <property name="Description" value="A key to unlock encryption cubes."/>
+    <property name="Name" value="Ecrypt_Key"/>
+    <property name="Type" value="keyitem"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="68" name="CheckKey" type="Dialogue" x="448" y="688">
+   <properties>
+    <property name="Dialogue Type" value="itemcheck"/>
+    <property name="Item 1" type="object" value="67"/>
+    <property name="Next 1" type="object" value="69"/>
+    <property name="Next 2" type="object" value="58"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="77" name="CheckKey" type="Dialogue" x="656" y="48">
+   <properties>
+    <property name="Dialogue Type" value="itemcheck"/>
+    <property name="Item 1" type="object" value="67"/>
+    <property name="Next 1" type="object" value="40"/>
+    <property name="Next 2" type="object" value="63"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="69" name="HasKey" type="Dialogue" x="424" y="664">
+   <properties>
+    <property name="Dialogue Type" value="question"/>
+    <property name="Mugshot" value="player"/>
+    <property name="Next 1" type="object" value="70"/>
+    <property name="Next 2" type="object" value="58"/>
+    <property name="Text 1" value="Open cube?"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="70" name="OpenCube" type="Dialogue" x="400" y="664">
+   <properties>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Event Name" value="free_prog"/>
+    <property name="Next 1" type="object" value="72"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="71" name="Freed" type="Dialogue" x="536" y="40">
+   <properties>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Next 1" type="object" value="78"/>
+    <property name="Text 1" value="There were viruses in the cube? Well we thank you for helping to keep the net safe. Take this."/>
+   </properties>
+   <point/>
+  </object>
+  <object id="74" type="Dialogue" x="520" y="48">
+   <properties>
+    <property name="Dialogue Type" value="item"/>
+    <property name="Item 1" type="object" value="75"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="75" name="Monies" type="Item" x="520" y="40">
+   <properties>
+    <property name="Amount" type="int" value="3000"/>
+    <property name="Type" value="money"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="52" name="TrappedProg" type="NPC" x="464" y="664">
+   <properties>
+    <property name="Asset Name" value="Blank"/>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Direction" value="Down Left"/>
+    <property name="Mugshot" value="player"/>
+    <property name="Next 1" type="object" value="76"/>
+    <property name="Text 1" value="There's data locked in these cubes."/>
+   </properties>
+   <point/>
+  </object>
+  <object id="78" name="reward" type="Dialogue" x="528" y="48">
+   <properties>
+    <property name="Dialogue Type" value="quest_event"/>
+    <property name="Event Value" value="rewarded"/>
+    <property name="Next 1" type="object" value="74"/>
+    <property name="Quest Name" value="Stuck Prog"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="81" name="Rustling" type="Dialogue" x="480" y="664">
+   <properties>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Mugshot" value="player"/>
+    <property name="Next 1" type="object" value="54"/>
+    <property name="Text 1" value="It sounds like there's something in this cube."/>
+   </properties>
+   <point/>
+  </object>
+ </objectgroup>
+ <layer id="7" name="Ground 4" width="30" height="30" offsetx="0" offsety="-48">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,247,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,247,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup id="8" name="Ground 4" offsetx="0" offsety="-48">
+  <object id="16" gid="284" x="352" y="704" width="48" height="52"/>
+  <object id="20" name="Cargo3" type="Cargo Train" x="152" y="952">
+   <properties>
+    <property name="Color" value="Orange"/>
+    <property name="Direction" value="Up Right"/>
+    <property name="End" value="4,0"/>
+    <property name="Speed" value="2"/>
+    <property name="Start" value="4,29"/>
+    <property name="Train Z" value="2"/>
+   </properties>
+   <point/>
+  </object>
+ </objectgroup>
+ <layer id="9" name="Ground 5" width="30" height="30" offsetx="0" offsety="-64">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2147483893,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2147483893,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2147483893,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2147483893,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2147483893,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2147483893,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2147483893,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2147483893,0,0,
+257,0,0,0,258,257,0,0,0,257,258,0,0,0,258,257,0,0,0,257,258,0,0,0,0,0,0,2147483893,0,0,
+258,0,0,0,258,257,0,0,0,258,257,0,0,0,257,258,0,0,0,258,258,0,0,0,0,0,0,2147483893,0,0,
+257,258,257,258,257,258,258,257,258,258,258,257,258,257,257,257,257,258,257,258,257,248,0,0,0,0,0,2147483893,0,0,
+258,0,0,0,258,258,0,0,0,257,257,0,0,0,258,257,0,0,0,258,258,0,0,0,0,0,0,2147483893,0,0,
+257,0,0,0,258,257,0,0,0,258,258,0,0,0,258,258,0,0,0,258,257,0,0,0,0,0,0,2147483893,0,0,
+258,0,0,0,258,257,0,0,0,257,258,0,0,0,257,257,0,0,0,257,257,0,0,0,0,0,0,2147483893,0,0,
+257,0,0,0,258,258,0,0,0,258,257,0,0,0,257,258,0,0,0,257,258,0,0,0,0,0,0,2147483893,0,0,
+258,0,0,0,257,257,0,0,0,257,258,0,0,0,257,258,0,0,0,257,258,0,0,0,0,0,0,2147483893,0,0,
+257,0,0,0,258,258,0,0,0,258,257,0,0,0,258,257,0,0,0,258,257,0,0,0,0,0,0,2147483893,0,0,
+258,0,0,0,257,257,0,0,0,258,257,0,0,0,257,257,0,0,0,258,257,0,0,0,0,0,0,2147483893,0,0,
+257,257,258,258,258,257,257,258,258,257,257,258,258,257,258,257,257,257,257,257,258,248,0,0,0,0,0,2147483893,0,0,
+257,0,0,0,258,258,0,0,0,258,258,0,0,0,257,258,0,0,0,257,258,0,0,0,0,0,0,2147483893,0,0,
+257,0,0,0,258,257,0,0,0,258,257,0,0,0,258,257,0,0,0,258,258,0,0,0,0,0,0,2147483893,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2147483893,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2147483893,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2147483893,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2147483893,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2147483893,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2147483893,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2147483893,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2147483893,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,2147483893,0,0
+</data>
+ </layer>
+ <objectgroup id="10" name="Ground 5" class="Gound 5" offsetx="0" offsety="-64">
+  <object id="33" name="ProgJogger" type="NPC" x="640" y="336">
+   <properties>
+    <property name="Asset Name" value="prog"/>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Direction" value="Up Left"/>
+    <property name="Next Waypoint 1" type="object" value="34"/>
+    <property name="Text 1" value="I'M RACING THE TRAINS"/>
+    <property name="Wait Time" type="int" value="0"/>
+    <property name="Waypoint Type" value="first"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="34" name="Waypoint" x="16" y="336">
+   <properties>
+    <property name="Next Waypoint 1" type="object" value="35"/>
+    <property name="Wait Time" type="int" value="0"/>
+    <property name="Waypoint Type" value="first"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="35" name="Waypoint" x="16" y="592">
+   <properties>
+    <property name="Next Waypoint 1" type="object" value="36"/>
+    <property name="Wait Time" type="int" value="0"/>
+    <property name="Waypoint Type" value="first"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="36" name="Waypoint" x="640" y="592">
+   <properties>
+    <property name="Next Waypoint 1" type="object" value="37"/>
+    <property name="Wait Time" type="int" value="0"/>
+    <property name="Waypoint Type" value="first"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="37" name="Waypoint" x="640" y="336">
+   <properties>
+    <property name="Next Waypoint 1" type="object" value="34"/>
+    <property name="Wait Time" type="int" value="0"/>
+    <property name="Waypoint Type" value="first"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="38" name="NotOpen" type="NPC" x="64" y="416">
+   <properties>
+    <property name="Asset Name" value="Blank"/>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Direction" value="Down"/>
+    <property name="Mugshot" value="player"/>
+    <property name="Text 1" value="This area is under construction."/>
+   </properties>
+   <point/>
+  </object>
+ </objectgroup>
+ <layer id="11" name="Ground 6" width="30" height="30" offsetx="0" offsety="-80">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup id="14" name="Ground 6" offsetx="0" offsety="-80"/>
+ <layer id="12" name="Ground 7" width="30" height="30" offsetx="0" offsety="-96">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup id="13" name="Ground 7" offsetx="0" offsety="-96">
+  <object id="46" name="Cargo4" type="Cargo Train" x="928" y="336">
+   <properties>
+    <property name="Color" value="Gray"/>
+    <property name="Direction" value="Down Left"/>
+    <property name="End" value="28,29"/>
+    <property name="Speed" value="1.5"/>
+    <property name="Start" value="28,0"/>
+    <property name="Train Z" value="5"/>
+   </properties>
+   <point/>
+  </object>
+ </objectgroup>
+</map>

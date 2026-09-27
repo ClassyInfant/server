@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.12.2" orientation="isometric" renderorder="right-down" width="25" height="25" tilewidth="64" tileheight="32" infinite="0" nextlayerid="5" nextobjectid="34">
+ <properties>
+  <property name="Background" value="custom"/>
+  <property name="Background Animation" value="/server/assets/bg/07a-centralarea.animation"/>
+  <property name="Background Texture" value="/server/assets/bg/07a-centralarea.png"/>
+  <property name="Forced Base HP" type="int" value="300"/>
+  <property name="Full Heal" type="bool" value="true"/>
+  <property name="Honor HPMem" type="bool" value="true"/>
+  <property name="Name" value="CL_SubNet2"/>
+  <property name="Song" value="/server/assets/exe5-indoors.ogg"/>
+ </properties>
+ <tileset firstgid="1" source="../assets/rainbow_floor.tsx"/>
+ <tileset firstgid="17" source="../assets/central_platform.tsx"/>
+ <tileset firstgid="257" source="../assets/central_arrows.tsx"/>
+ <tileset firstgid="261" source="../assets/central_arrows2.tsx"/>
+ <tileset firstgid="265" source="../assets/central_platform_break.tsx"/>
+ <tileset firstgid="266" source="../assets/CentralCounter.tsx"/>
+ <tileset firstgid="268" source="../assets/Roadblock.tsx"/>
+ <tileset firstgid="270" source="../assets/HoloPanelz.tsx"/>
+ <tileset firstgid="280" source="../assets/Junkpiles.tsx"/>
+ <layer id="1" name="Ground 1" width="25" height="25">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,258,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,54,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,18,29,0,44,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,17,39,49,61,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,27,38,0,64,0,0,0,18,29,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,48,0,0,0,27,38,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,18,19,29,0,0,0,0,0,0,0,0,0,0,0,0,0,
+100,115,105,115,105,105,127,67,47,17,28,39,49,45,270,270,7,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,27,37,38,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,59,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,18,29,0,270,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,27,38,0,270,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,7,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup id="2" name="Ground 1">
+  <object id="2" gid="265" x="495.5" y="268.5" width="71" height="46"/>
+  <object id="3" gid="2147483913" x="364.251" y="367.749" width="71" height="46"/>
+  <object id="5" name="Met" type="NPC" x="336" y="400">
+   <properties>
+    <property name="Asset Name" value="mettaur-bn45"/>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Direction" value="Up Right"/>
+    <property name="Text 1" value="Welcome to ONB.clewis.dad!"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="27" name="Met" type="NPC" x="272" y="328">
+   <properties>
+    <property name="Asset Name" value="mettaur-bn45"/>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Direction" value="Up Right"/>
+    <property name="Text 1" value="Welcome to ONB.clewis.dad!"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="28" name="Met" type="NPC" x="256" y="368">
+   <properties>
+    <property name="Asset Name" value="mettaur-bn45"/>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Direction" value="Down"/>
+    <property name="Text 1" value="Welcome to ONB.clewis.dad!"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="6" name="Met" type="NPC" x="528" y="240">
+   <properties>
+    <property name="Asset Name" value="mettaur-bn45"/>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Direction" value="Up Left"/>
+    <property name="Text 1" value="Welcome to ONB.clewis.dad!"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="29" name="Met" type="NPC" x="456" y="176">
+   <properties>
+    <property name="Asset Name" value="mettaur-bn45"/>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Direction" value="Up "/>
+    <property name="Text 1" value="Welcome to ONB.clewis.dad!"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="7" gid="2147483914" x="264" y="104" width="32" height="32">
+   <properties>
+    <property name="Interact Relay" type="object" value="9"/>
+   </properties>
+  </object>
+  <object id="8" gid="2147483915" x="259.5" y="120.5" width="32" height="32">
+   <properties>
+    <property name="Interact Relay" type="object" value="9"/>
+   </properties>
+  </object>
+  <object id="9" name="Info_Navi" type="NPC" x="264" y="104">
+   <properties>
+    <property name="Asset Name" value="male-navi-exe4_pink"/>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Direction" value="Down Right"/>
+    <property name="Next 1" type="object" value="10"/>
+    <property name="Text 1" value="Welcome to CL_SubNet2"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="10" type="Dialogue" x="261" y="57">
+   <properties>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Text 1" value="This area serves as a gateway to other parts of the network. Currently this is under construction."/>
+   </properties>
+   <point/>
+  </object>
+  <object id="11" name="GMNavi" type="NPC" x="296.5" y="201.5">
+   <properties>
+    <property name="Asset Name" value="GMNavi"/>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Direction" value="Down"/>
+    <property name="Text 1" value="Your safety is our priotity."/>
+   </properties>
+   <point/>
+  </object>
+  <object id="12" name="T/F default" type="Radius Warp" x="336.5" y="21.5">
+   <properties>
+    <property name="Activation Radius" type="float" value="0.5"/>
+    <property name="Arrival Animation" value="arrow_up_right_in"/>
+    <property name="Leave Animation" value="arrow_up_right_out"/>
+    <property name="Target Area" value="default"/>
+    <property name="Target Object" type="object" value="144"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="30" name="T/F transport" type="Radius Warp" x="16" y="240">
+   <properties>
+    <property name="Activation Radius" type="float" value="0.5"/>
+    <property name="Arrival Animation" value="arrow_up_left_in"/>
+    <property name="Leave Animation" value="arrow_up_left_out"/>
+    <property name="Target Area" value="Transport"/>
+    <property name="Target Object" type="object" value="21"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="13" name="NormalNaviG" type="NPC" x="368" y="240">
+   <properties>
+    <property name="Asset Name" value="normal-navi-bn4_green"/>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Direction" value="Up Left"/>
+    <property name="Next Waypoint 1" type="object" value="14"/>
+    <property name="Text 1" value="Apparently these Mets are tamed and building up new roads!"/>
+    <property name="Wait Time" type="int" value="3"/>
+    <property name="Waypoint Type" value="first"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="14" name="Waypoint 1" x="112" y="240">
+   <properties>
+    <property name="Next Waypoint 1" type="object" value="17"/>
+    <property name="Wait Time" type="int" value="3"/>
+    <property name="Waypoint Type" value="first"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="15" name="Waypoint 2" x="368" y="272">
+   <properties>
+    <property name="Next Waypoint 1" type="object" value="16"/>
+    <property name="Next Waypoint 2" type="object" value="17"/>
+    <property name="Wait Time" type="int" value="3"/>
+    <property name="Waypoint Type" value="random"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="17" name="Waypoint 4" x="368" y="240">
+   <properties>
+    <property name="Next Waypoint 1" type="object" value="15"/>
+    <property name="Next Waypoint 2" type="object" value="16"/>
+    <property name="Next Waypoint 3" type="object" value="14"/>
+    <property name="Wait Time" type="int" value="3"/>
+    <property name="Waypoint Type" value="random"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="16" name="Waypoint 3" x="368" y="208">
+   <properties>
+    <property name="Next Waypoint 1" type="object" value="17"/>
+    <property name="Next Waypoint 2" type="object" value="15"/>
+    <property name="Wait Time" type="int" value="3"/>
+    <property name="Waypoint Type" value="random"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="19" gid="269" x="336" y="320" width="64" height="64">
+   <properties>
+    <property name="Interact Relay" type="object" value="23"/>
+   </properties>
+  </object>
+  <object id="20" gid="2147483917" x="416" y="240" width="64" height="64">
+   <properties>
+    <property name="Interact Relay" type="object" value="23"/>
+   </properties>
+  </object>
+  <object id="23" name="Under_Construction" type="NPC" x="448" y="344">
+   <properties>
+    <property name="Asset Name" value="Blank"/>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Direction" value="Down"/>
+    <property name="Mugshot" value="player"/>
+    <property name="Text 1" value="This area is under construction."/>
+   </properties>
+   <point/>
+  </object>
+  <object id="25" gid="281" x="480" y="160" width="64" height="64"/>
+  <object id="26" gid="2147483929" x="256" y="352" width="64" height="64"/>
+  <object id="31" gid="261" x="-40" y="200" width="96" height="64"/>
+ </objectgroup>
+</map>
