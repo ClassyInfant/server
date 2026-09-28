@@ -328,7 +328,7 @@
                 2
             ],
             "scale": 2,
-            "selectedLayer": 1,
+            "selectedLayer": 5,
             "viewCenter": {
                 "x": 320.25,
                 "y": 143.75
@@ -341,8 +341,8 @@
             "scale": 4,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 320.125,
-                "y": 160.125
+                "x": 341.125,
+                "y": 178.625
             }
         },
         "areas/SubNet0.tmx": {
@@ -352,8 +352,8 @@
             "scale": 1.5,
             "selectedLayer": 1,
             "viewCenter": {
-                "x": 1245.6666666666665,
-                "y": 441.66666666666663
+                "x": 1243,
+                "y": 391
             }
         },
         "areas/SubNet2.tmx": {
@@ -379,8 +379,8 @@
             "scale": 0.75,
             "selectedLayer": 5,
             "viewCenter": {
-                "x": 1084.6666666666665,
-                "y": 456.66666666666663
+                "x": 868.6666666666666,
+                "y": 448.66666666666663
             }
         },
         "areas/default.tmx": {
@@ -389,11 +389,11 @@
                 5,
                 2
             ],
-            "scale": 4,
+            "scale": 1,
             "selectedLayer": 3,
             "viewCenter": {
-                "x": 528.375,
-                "y": 172.375
+                "x": 754.5,
+                "y": 319.5
             }
         },
         "assets/BBS-BN4.tsx": {
