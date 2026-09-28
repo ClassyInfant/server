@@ -8,7 +8,6 @@
         "assets/ezlibs-assets",
         "areas"
     ],
-    "file.lastUsedOpenFilter": "All Files (*)",
     "fileStates": {
         "/home/cody/Downloads/gravy.tmx": {
             "expandedObjectLayers": [
@@ -377,11 +376,11 @@
                 2,
                 10
             ],
-            "scale": 5.5,
+            "scale": 0.75,
             "selectedLayer": 5,
             "viewCenter": {
-                "x": 706.090909090909,
-                "y": 532.0909090909091
+                "x": 1084.6666666666665,
+                "y": 456.66666666666663
             }
         },
         "areas/default.tmx": {
@@ -403,6 +402,9 @@
         "assets/BBS.tsx": {
             "scaleInDock": 1,
             "scaleInEditor": 1
+        },
+        "assets/BattleMachineBN4.tsx": {
+            "scaleInDock": 1
         },
         "assets/Blank.tsx": {
             "scaleInDock": 1,
@@ -481,6 +483,9 @@
         "assets/UndernetTiles.tsx": {
             "scaleInDock": 1,
             "scaleInEditor": 1
+        },
+        "assets/WaterTilesV2.tsx": {
+            "scaleInDock": 1
         },
         "assets/beyblade.tsx": {
             "scaleInDock": 1,
@@ -760,21 +765,12 @@
             "scaleInDock": 1
         }
     },
-    "last.externalTilesetPath": "/media/cody/Storage/BattleNetwork/ServerStuff/server/assets",
-    "last.imagePath": "/media/cody/Storage/BattleNetwork/ServerStuff/server/assets/ezlibs-assets/eznpcs/sheet",
-    "last.objectTemplatePath": "/media/cody/Storage/BattleNetwork/Server/linux_server_2_1_6_062926/assets",
-    "map.height": 30,
-    "map.lastUsedFormat": "tmx",
-    "map.orientation": "2",
-    "map.tileWidth": 64,
-    "map.width": 30,
     "openFiles": [
         "areas/default.tmx",
         "areas/ForestBBS.tmx",
         "areas/SeaBBS.tmx"
     ],
     "project": "HPServer.tiled-project",
-    "property.type": "string",
     "recentFiles": [
         "areas/SeaBBS.tmx",
         "areas/ForestBBS.tmx",
@@ -788,13 +784,5 @@
         "assets/UndernetStairs.tsx",
         "assets/kabob.tsx",
         "assets/hp_warp.tsx"
-    ],
-    "tileset.lastUsedFilter": "Tiled tileset files (*.tsx *.xml)",
-    "tileset.lastUsedFormat": "tsx",
-    "tileset.spacing": 1,
-    "tileset.tileSize": {
-        "height": 32,
-        "width": 64
-    },
-    "tileset.type": 0
+    ]
 }
