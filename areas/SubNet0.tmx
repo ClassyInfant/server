@@ -30,9 +30,9 @@
  <tileset firstgid="155" source="../assets/EXE6_boss_markers.tsx"/>
  <layer id="1" name="Ground1" width="30" height="30">
   <data encoding="csv">
-0,0,0,0,0,0,3,4,3,4,3,0,3,4,4,4,3,0,3,4,3,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,4,8,4,8,4,1,4,8,8,8,4,1,4,115,4,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,3,4,3,4,3,0,4,8,8,8,4,0,3,4,3,0,0,0,0,0,0,0,0,0,
+3,4,3,4,3,4,3,4,3,4,3,0,3,4,4,4,3,0,3,4,3,0,0,0,0,0,0,0,0,0,
+4,8,4,8,4,8,4,8,4,8,4,1,4,8,8,8,4,1,4,115,4,0,0,0,0,0,0,0,0,0,
+3,4,3,4,3,4,3,4,3,4,3,0,4,8,8,8,4,0,3,4,3,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,3,4,4,4,3,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,1,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,1,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,4,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -71,12 +71,7 @@
     <property name="Type" value="item"/>
    </properties>
   </object>
-  <object id="11" gid="100" x="240" y="64" width="78" height="92"/>
-  <object id="12" name="RebattleBosses" gid="2147483750" x="280" y="56" width="32" height="33">
-   <properties>
-    <property name="Interact Relay" type="object" value="17"/>
-   </properties>
-  </object>
+  <object id="11" gid="100" x="32" y="64" width="78" height="92"/>
   <object id="13" name="Fishing" type="FishBBS" gid="2147483752" x="648" y="-6" width="32" height="56">
    <properties>
     <property name="Color" type="color" value="#ffa602cf"/>
@@ -106,17 +101,6 @@
     <property name="Unlock Message" value="Welcome."/>
    </properties>
   </object>
-  <object id="17" name="BattleNPC" type="NPC" x="264" y="-24">
-   <properties>
-    <property name="Asset Name" value="Blank"/>
-    <property name="Dialogue Type" value="first"/>
-    <property name="Direction" value="Down"/>
-    <property name="Mugshot" value="ranked-navi-bn3"/>
-    <property name="Next 1" type="object" value="20"/>
-    <property name="Text 1" value="This is the battle simulator."/>
-   </properties>
-   <point/>
-  </object>
   <object id="18" type="Radius Warp" x="464" y="464">
    <properties>
     <property name="Activation Radius" type="float" value="0.7"/>
@@ -126,43 +110,6 @@
    </properties>
    <point/>
   </object>
-  <object id="19" gid="161" x="288" y="32" width="64" height="32"/>
-  <object id="20" name="Ask" type="Dialogue" x="264" y="-48">
-   <properties>
-    <property name="Dialogue Type" value="quiz"/>
-    <property name="Mugshot" value="ranked-navi-bn3"/>
-    <property name="Next 1" type="object" value="21"/>
-    <property name="Next 2" type="object" value="22"/>
-    <property name="Next 3" type="object" value="23"/>
-    <property name="Text 1" value="Battle"/>
-    <property name="Text 2" value="About"/>
-    <property name="Text 3" value="Cancel"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="21" name="BattleMenu" type="Dialogue" x="216" y="-56">
-   <properties>
-    <property name="Dialogue Type" value="first"/>
-    <property name="Mugshot" value="ranked-navi-bn3"/>
-    <property name="Text 1" value="Unfortunately this has not been implemented."/>
-   </properties>
-   <point/>
-  </object>
-  <object id="22" name="Info" type="Dialogue" x="264" y="-72">
-   <properties>
-    <property name="Dialogue Type" value="first"/>
-    <property name="Mugshot" value="ranked-navi-bn3"/>
-    <property name="Text 1" value="This is a battle simulator. You can rebattle any boss encounter you have beaten. Each battle costs 1 Btl_Pass. There are no loss penalties."/>
-   </properties>
-   <point/>
-  </object>
-  <object id="23" name="Cancel" type="Dialogue" x="312" y="-56">
-   <properties>
-    <property name="Dialogue Type" value="first"/>
-    <property name="Mugshot" value="ranked-navi-bn3"/>
-    <property name="Text 1" value="Very well."/>
-   </properties>
-   <point/>
-  </object>
+  <object id="19" gid="161" x="352" y="32" width="64" height="32"/>
  </objectgroup>
 </map>
