@@ -100,9 +100,9 @@
     <property name="Asset Name" value="prog"/>
     <property name="Dialogue Type" value="random"/>
     <property name="Direction" value="Down Right"/>
-    <property name="Text 1" value="Welcome to ONB.clewis.dad!"/>
-    <property name="Text 2" value="Read our welcome BBS!"/>
-    <property name="Text 3" value="Why am I screaming?!"/>
+    <property name="Text 1" value="WELCOME TO ONB.clewis.dad!"/>
+    <property name="Text 2" value="READ OUR WELCOME BBS!"/>
+    <property name="Text 3" value="WHY AM I SCREAMING?!"/>
    </properties>
    <point/>
   </object>
