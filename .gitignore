@@ -1,3 +1,4 @@
-.tiled-project
-.tiled-session
+*.tiled-project
 *.tiled-session
+memory/*
+!memory/.gitkeep
