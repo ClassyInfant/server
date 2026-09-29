@@ -22,11 +22,14 @@ local give_result_awards = function (player_id,encounter_info,stats)
         local area_id = Net.get_player_area(player_id)
         if area_id == "default" then
             Net.transfer_player(player_id, "default", true, 14, 15, 0, "Down")
+        end
         if area_id == "Transport" then
             Net.transfer_player(player_id, "Transport", true, 24, 6, 2, "Down")
+        end
         if area_id == nil then
             print("No area ID")
             Net.transfer_player(player_id, "default", true, 14, 15, 0, "Down")
+        end
         return
     end
     if stats.ran then
