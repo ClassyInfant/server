@@ -7,7 +7,7 @@
   <property name="Forced Base HP" type="int" value="300"/>
   <property name="Full Heal" type="bool" value="true"/>
   <property name="Honor HPMem" type="bool" value="true"/>
-  <property name="Name" value="TransprtLyr"/>
+  <property name="Name" value="Transprt_1"/>
   <property name="Song" value="/server/assets/exe2-densankuukou.ogg"/>
  </properties>
  <tileset firstgid="1" source="../assets/central_platform.tsx"/>
