@@ -297,7 +297,7 @@
     <property name="Asset Name" value="red-prog"/>
     <property name="Dialogue Type" value="first"/>
     <property name="Direction" value="Down Right"/>
-    <property name="Text 1" value="The train is down for maintanence."/>
+    <property name="Text 1" value="COME CHECK THIS AREA ANOTHER TIME! THERE MAY JUST BE SOMETHING HERE IN THE FUTURE!"/>
    </properties>
    <point/>
   </object>

@@ -8,6 +8,7 @@
   <property name="Full Heal" type="bool" value="true"/>
   <property name="Honor HPMem" type="bool" value="true"/>
   <property name="Name" value="CL_Net"/>
+  <property name="OctoPVP" type="bool" value="true"/>
   <property name="Song" value="/server/assets/exe5-indoors.ogg"/>
  </properties>
  <tileset firstgid="1" source="../assets/rainbow_floor.tsx"/>

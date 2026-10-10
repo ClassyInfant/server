@@ -2,3 +2,4 @@
 *.tiled-session
 memory/*
 !memory/.gitkeep
+ezlibs-config.lua
