@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.12.2" orientation="isometric" renderorder="right-down" width="30" height="30" tilewidth="64" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="69">
+<map version="1.10" tiledversion="1.12.2" orientation="isometric" renderorder="right-down" width="30" height="30" tilewidth="64" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="75">
  <properties>
   <property name="Background" value="custom"/>
   <property name="Background Animation" value="/server/assets/bg/08b-underground.animation"/>
@@ -139,11 +139,33 @@
    </properties>
    <point/>
   </object>
+  <object id="69" name="BassBoss" type="NPC" x="272" y="80">
+   <properties>
+    <property name="Asset Name" value="bass"/>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Direction" value="Up Right"/>
+    <property name="Mugshot" value="player"/>
+    <property name="Next 1" type="object" value="72"/>
+    <property name="Quest Exclusive" value="Beat Bass"/>
+    <property name="Quest State" value="beat"/>
+    <property name="Text 1" value="This is combat data of Bass(Forte)."/>
+   </properties>
+   <point/>
+  </object>
   <object id="33" name="BattleQuestion" type="Dialogue" x="264" y="-8">
    <properties>
     <property name="Dialogue Type" value="question"/>
     <property name="Next 1" type="object" value="34"/>
     <property name="Next 2" type="object" value="35"/>
+    <property name="Text 1" value="Use 1 Btl_Pass to fight?"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="72" name="BattleQuestion" type="Dialogue" x="288" y="120">
+   <properties>
+    <property name="Dialogue Type" value="question"/>
+    <property name="Next 1" type="object" value="73"/>
+    <property name="Next 2" type="object" value="70"/>
     <property name="Text 1" value="Use 1 Btl_Pass to fight?"/>
    </properties>
    <point/>
@@ -158,7 +180,25 @@
    </properties>
    <point/>
   </object>
+  <object id="73" name="Fight" type="Dialogue" x="280" y="120">
+   <properties>
+    <property name="Dialogue Type" value="itemcheck"/>
+    <property name="Item 1" type="object" value="36"/>
+    <property name="Next 1" type="object" value="74"/>
+    <property name="Next 2" type="object" value="71"/>
+    <property name="Take Item" type="bool" value="true"/>
+   </properties>
+   <point/>
+  </object>
   <object id="35" name="No" type="Dialogue" x="272" y="-8">
+   <properties>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Mugshot" value="player"/>
+    <property name="Text 1" value="Cancelled."/>
+   </properties>
+   <point/>
+  </object>
+  <object id="70" name="No" type="Dialogue" x="288" y="128">
    <properties>
     <property name="Dialogue Type" value="first"/>
     <property name="Mugshot" value="player"/>
@@ -184,10 +224,25 @@
    </properties>
    <point/>
   </object>
+  <object id="71" name="NoPass" type="Dialogue" x="280" y="112">
+   <properties>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Mugshot" value="player"/>
+    <property name="Text 1" value="We don't have any Btl_Pass..."/>
+   </properties>
+   <point/>
+  </object>
   <object id="38" name="Battle" type="Dialogue" x="256" y="-32">
    <properties>
     <property name="Dialogue Type" value="none"/>
     <property name="Event Name" value="SubNet1 Boss"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="74" name="Battle" type="Dialogue" x="280" y="128">
+   <properties>
+    <property name="Dialogue Type" value="none"/>
+    <property name="Event Name" value="Bass Boss"/>
    </properties>
    <point/>
   </object>

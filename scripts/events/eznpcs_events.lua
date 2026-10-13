@@ -194,6 +194,46 @@ local subnet_1_boss_fight = {
     --results_callback = boss_rewards
 }
 
+local bass = {
+    name="bass_boss",
+    path="/server/assets/ezlibs-assets/ezencounters/ezencounters.zip",
+    weight=10,
+    enemies={
+        {name="Forte",rank=1},
+    },
+    obstacles={
+    },
+    positions={
+        {0,0,0,0,0,0},
+        {0,0,0,0,1,0},
+        {0,0,0,0,0,0},
+    },
+    obstacle_positions={
+        {0,0,0,0,0,0},
+        {0,0,0,0,0,0},
+        {0,0,0,0,0,0},
+    },
+    player_positions={
+        {0,0,0,0,0,0},
+        {0,1,0,0,0,0},
+        {0,0,0,0,0,0},
+    },
+    tiles={
+        {1,1,1,1,1,1},
+        {1,1,1,1,1,1},
+        {1,1,1,1,1,1},
+    },
+    teams={
+        {2,2,2,1,1,1},
+        {2,2,2,1,1,1},
+        {2,2,2,1,1,1},
+    },
+    music={
+        path="bn5_boss.mid"
+    },
+    --results_callback = give_result_awards
+}
+
 --subnet_1 junk quest encounter, cleanup, and save
 local clean_junk = {
     name = "clean_junk",
@@ -237,6 +277,19 @@ local subnet_1_boss = {
     end
 }
 eznpcs.add_event(subnet_1_boss)
+
+local bass_boss = {
+    name = "Bass Boss",
+    action = function(npc, player_id, dialogue, relay_object)
+        return async(function()           
+            
+            local stats = await(ezencounters.begin_encounter(player_id, bass, nil))
+            local flags = _encounter_result_flags(stats)
+            
+        end)
+    end
+}
+eznpcs.add_event(bass_boss)
 
 --box of viruses name is a hold over from an older idea
 local free_prog = {

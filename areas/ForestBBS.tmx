@@ -163,11 +163,9 @@
   <object id="54" name="T/F SubNet0" type="Radius Warp" x="264" y="184">
    <properties>
     <property name="Activation Radius" type="float" value="0.8"/>
-    <property name="Arrive Animation" value="fall_in"/>
     <property name="Leave Animation" value="fall_off_2"/>
     <property name="Target Area" value="SubNet0"/>
     <property name="Target Object" type="object" value="18"/>
-    <property name="Warp Out" type="bool" value="false"/>
    </properties>
    <point/>
   </object>
