@@ -1,0 +1,8 @@
+imagePath="kitchencomp.png"
+
+animation state="BG"
+frame duration="0.5" x="0" y="0" w="64" h="96" originx="0" originy="0" flipx="0" flipy="0"
+frame duration="0.5" x="64" y="0" w="64" h="96" originx="0" originy="0" flipx="0" flipy="0"
+frame duration="0.5" x="128" y="0" w="64" h="96" originx="0" originy="0" flipx="0" flipy="0"
+frame duration="0.5" x="192" y="0" w="64" h="96" originx="0" originy="0" flipx="0" flipy="0"
+

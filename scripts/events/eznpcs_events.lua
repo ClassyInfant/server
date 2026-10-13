@@ -384,15 +384,26 @@ local move_player = {
 }
 eznpcs.add_event(move_player)
 
-local boss_rematch = {
-    name = "boss_rematch",
+local btl_pass_count = {
+    name = "Battle Pass Count",
     action = function(npc, player_id, dialogue, relay_object)
 
         return async(function()
-            
+
+            local count = tostring(ezmemory.count_player_item(player_id, "Btl_Pass"))
+            print(count)
+            local message = "Btl_Pass count: "
+
+            await(Async.message_player(player_id, "Btl_Pass count: " .. count .. "", Blank, Blank))
+            --Move to the next dialogue if there is one
+            if dialogue.custom_properties["Next 1"] == nil then
+                return
+            else
+                return dialogue.custom_properties["Next 1"]
+            end
         end)
     end
 }
-eznpcs.add_event(boss_rematch)
+eznpcs.add_event(btl_pass_count)
 
 
