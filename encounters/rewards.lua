@@ -447,5 +447,20 @@ return {
         },
     },
 
+    Scuttle = {
+        [1] = {
+            low = {type="money",value=500},
+            mid = {type="money",value=700},
+            high = {type="money",value=900},
+        },
+    },
+
+    Elemperor = {
+        [1] = {
+            low = {type="money",value=100},
+            mid = {type="money",value=300},
+            high = {type="money",value=500},
+        },
+    },
 }
 

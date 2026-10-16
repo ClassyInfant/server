@@ -4,6 +4,8 @@ local ezencounters = require('scripts/ezlibs-scripts/ezencounters/main')
 local ezwarps = require('scripts/ezlibs-scripts/ezwarps/main')
 local helpers = require('scripts/ezlibs-scripts/helpers')
 local ezbus = require('scripts/ezlibs-scripts/ezbus')
+local ezexplosions = require('scripts/ezlibs-scripts/ezexplosions')
+local ezquests = require('scripts/ezlibs-scripts/ezquests')
 
 
 function await(v) return Async.await(v) end
@@ -23,7 +25,7 @@ local give_result_awards = function (player_id,encounter_info,stats)
         if area_id == "default" then
             Net.transfer_player(player_id, "default", true, 14, 15, 0, "Down")
         end
-        if area_id == "Transport" then
+        if area_id == "Transport" or area_id == "Transport2" or area_id == "SwitchComp" or area_id == "KitchenComp" or area_id == "CoffeeComp" then
             Net.transfer_player(player_id, "Transport", true, 24, 6, 2, "Down")
         end
         if area_id == nil then
@@ -72,6 +74,7 @@ local function _encounter_result_flags(stats)
         lost = lost,
     }
 end
+
 
 
 local junkfight = {
@@ -232,6 +235,46 @@ local bass = {
         path="bn5_boss.mid"
     },
     --results_callback = give_result_awards
+}
+
+local virustraders = {
+    name="virustraders",
+    path="/server/assets/ezlibs-assets/ezencounters/ezencounters.zip",
+    weight=10,
+    enemies={
+        {name="Scuttle",rank=1},
+    },
+    obstacles={
+    },
+    positions={
+        {0,0,0,0,0,1},
+        {0,0,0,0,1,0},
+        {0,0,0,0,0,0},
+    },
+    obstacle_positions={
+        {0,0,0,0,0,0},
+        {0,0,0,0,0,0},
+        {0,0,0,0,0,0},
+    },
+    player_positions={
+        {0,0,0,0,0,0},
+        {0,1,0,0,0,0},
+        {0,0,0,0,0,0},
+    },
+    tiles={
+        {1,1,1,1,1,1},
+        {1,12,1,1,12,1},
+        {1,1,1,1,1,1},
+    },
+    teams={
+        {2,2,2,1,1,1},
+        {2,2,2,1,1,1},
+        {2,2,2,1,1,1},
+    },
+    music={
+        path="bn5_boss.mid"
+    },
+    results_callback = give_result_awards
 }
 
 --subnet_1 junk quest encounter, cleanup, and save
@@ -459,4 +502,79 @@ local btl_pass_count = {
 }
 eznpcs.add_event(btl_pass_count)
 
+local heal = {
+    name = "heal",
+    action = function(npc, player_id, dialogue, relay_object)
 
+        return async(function()
+
+            --heal player
+            local max_hp = Net.get_player_max_health(player_id)
+            print(max_hp)
+            Net.set_player_health(player_id,max_hp)
+            Net.play_sound_for_player(player_id, '/server/assets/ezlibs-assets/sfx/recover.ogg')
+
+            if dialogue.custom_properties["Next 1"] == nil then
+                return
+            else
+                return dialogue.custom_properties["Next 1"]
+            end
+        end)
+    end
+}
+eznpcs.add_event(heal)
+
+local virus_traders = {
+    name = "virus traders",
+    action = function(npc, player_id, dialogue, relay_object)
+
+        return async(function()
+            --virus traders cutscene
+            local area_id = Net.get_player_area(player_id)
+            local stats = await(ezencounters.begin_encounter(player_id, virustraders, nil))
+            local flags = _encounter_result_flags(stats)
+            local quest_name = ezquests.get_quest("Virus Traders")
+            local event_value = 'beat'
+            if flags.ran or flags.lost then
+                return
+            else               
+                if dialogue.custom_properties["Debug"] then
+                    hide = ezmemory.hide_object_from_player_till_disconnect
+                else
+                    hide = ezmemory.hide_object_from_player
+                end         
+            --hide crates 3,4,5,6,7,8 and the NPC
+                hide(player_id, area_id, 3)
+                hide(player_id, area_id, 4)
+                hide(player_id, area_id, 5)
+                hide(player_id, area_id, 6)
+                hide(player_id, area_id, 7)
+                hide(player_id, area_id, 8)
+                Net.exclude_actor_for_player(player_id, npc.bot_id)
+            --checks for battle to exit to explode red crate         
+                Net:on("battle_exit", function(event)  
+                    if ezmemory.object_is_hidden_from_player(player_id, area_id, 10) == false then                    
+                        ezexplosions.explode(10, area_id, 5)
+                        Async.sleep(0.5).and_then(function()
+                            hide(player_id, area_id, 10)
+                        end)
+                    end
+                end)
+            --update quest
+                ezquests.quest_event(player_id,quest_name.name,event_value)              
+            --security interaction
+            local securityOne = 123456
+            local securityTwo = 654321
+            --securityOne
+            Net.create_bot(securityOne, {GMNaviOne, area_id, true, /server/assets/ezlibs-assets/eznpcs/sheet/GMNavi.png, /server/assets/ezlibs-assets/eznpcs/sheet/GMNavi.animation, IDLE_DL, 3, 14, 1, 'Down Left', true })
+            Net.exclude_actor_for_player(!player_id, securityOne)
+            Net.include_actor_for_player(player_id, securityOne)
+            --securityTwo
+            Net.create_bot(bot_id, { name?, area_id?, warp_in?, texture_path?, animation_path?, animation?, x?, y?, z?, direction?, solid? })
+            Net.exclude_actor_for_player(!player_id, actor_id)
+            Net.include_actor_for_player(player_id, actor_id)
+            end
+        end)
+    end
+}
+eznpcs.add_event(virus_traders)

@@ -1,0 +1,241 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.12.2" orientation="isometric" renderorder="right-down" width="10" height="20" tilewidth="64" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="40">
+ <properties>
+  <property name="Background" value="custom"/>
+  <property name="Background Animation" value="/server/assets/bg/CoffeeCompBG.animation"/>
+  <property name="Background Texture" value="/server/assets/bg/CoffeeCompBG.png"/>
+  <property name="Background Vel X" type="float" value="0.19999999999999996"/>
+  <property name="Background Vel Y" type="float" value="0.1"/>
+  <property name="Forced Base HP" type="int" value="300"/>
+  <property name="Full Heal" type="bool" value="true"/>
+  <property name="Honor HPMem" type="bool" value="true"/>
+  <property name="Mystery Data Maximum" type="int" value="3"/>
+  <property name="Mystery Data Minimum" type="int" value="1"/>
+  <property name="Name" value="CoffeeComp"/>
+  <property name="Song" value="/server/assets/CookingMamatrack.ogg"/>
+ </properties>
+ <tileset firstgid="1" source="../assets/rainbow_floor.tsx"/>
+ <tileset firstgid="17" source="../assets/hp_warp_blue.tsx"/>
+ <tileset firstgid="22" source="../assets/VirusBox-Sheet.tsx"/>
+ <tileset firstgid="26" source="../assets/VirusBoxRed.tsx"/>
+ <tileset firstgid="30" source="../assets/coffee.tsx"/>
+ <tileset firstgid="34" source="../assets/CentralCounter.tsx"/>
+ <layer id="1" name="Ground 1" width="10" height="20">
+  <data encoding="csv">
+0,0,0,12,13,13,12,0,0,0,
+0,0,13,13,13,13,13,13,0,0,
+13,13,13,13,13,13,13,13,0,0,
+0,0,0,12,13,13,12,12,12,12,
+0,0,0,0,13,13,13,12,7,12,
+0,0,0,0,13,13,13,12,7,12,
+0,0,0,0,13,13,13,12,7,12,
+12,11,12,0,13,13,13,12,7,12,
+0,12,12,0,13,13,13,12,12,12,
+0,13,13,13,13,13,13,13,13,13,
+0,0,13,13,13,13,13,13,13,13,
+0,0,0,0,11,0,0,0,0,0,
+0,0,12,0,11,0,0,12,12,0,
+0,0,12,11,11,11,11,12,0,12,
+0,0,12,11,11,11,11,12,12,0,
+0,0,12,11,11,11,11,12,0,0,
+0,0,0,12,11,11,12,0,0,0,
+0,0,0,0,12,12,0,0,0,0,
+0,0,0,12,12,12,12,0,0,0,
+0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup id="2" name="Ground 1">
+  <object id="1" gid="18" x="128" y="32" width="114" height="64"/>
+  <object id="2" name="CoffeeProg" type="NPC" x="104" y="112">
+   <properties>
+    <property name="Asset Name" value="prog"/>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Direction" value="Down Right"/>
+    <property name="Text 1" value="FOR AN IDEAL BREW USE A RATIO OF 1:16 GROUNDS TO WATER!"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="3" gid="22" x="88" y="504" width="32" height="33"/>
+  <object id="4" gid="22" x="88" y="472" width="32" height="33"/>
+  <object id="5" gid="2147483670" x="152" y="568" width="32" height="33"/>
+  <object id="6" gid="2147483670" x="216" y="440" width="32" height="33"/>
+  <object id="7" gid="22" x="248" y="472" width="32" height="33"/>
+  <object id="8" gid="22" x="216" y="472" width="32" height="33"/>
+  <object id="10" gid="2147483674" x="152" y="472" width="32" height="33"/>
+  <object id="13" gid="34" x="248" y="120" width="32" height="32">
+   <properties>
+    <property name="Interact Relay" type="object" value="17"/>
+   </properties>
+  </object>
+  <object id="14" gid="35" x="262.5" y="115.5" width="32" height="32">
+   <properties>
+    <property name="Interact Relay" type="object" value="17"/>
+   </properties>
+  </object>
+  <object id="16" gid="30" x="304" y="112" width="33" height="54"/>
+  <object id="17" name="CoffeeNavi" type="NPC" x="264" y="104">
+   <properties>
+    <property name="Asset Name" value="female-navi-exe6_pink"/>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Direction" value="Down Left"/>
+    <property name="Next 1" type="object" value="18"/>
+    <property name="Text 1" value="Welcome."/>
+   </properties>
+   <point/>
+  </object>
+  <object id="18" name="OfferCoffee" type="Dialogue" x="288" y="64">
+   <properties>
+    <property name="Dialogue Type" value="question"/>
+    <property name="Next 1" type="object" value="19"/>
+    <property name="Next 2" type="object" value="20"/>
+    <property name="Text 1" value="Care for a cup of cyber coffee? Only 100$"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="19" name="CheckMonie" type="Dialogue" x="288" y="56">
+   <properties>
+    <property name="Asset Name" value="Blank"/>
+    <property name="Dialogue Type" value="itemcheck"/>
+    <property name="Item 1" type="object" value="21"/>
+    <property name="Next 1" type="object" value="22"/>
+    <property name="Next 2" type="object" value="49"/>
+    <property name="Take Item" type="bool" value="true"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="20" name="No" x="296" y="64">
+   <point/>
+  </object>
+  <object id="21" name="Coffee" type="Item" x="280" y="56">
+   <properties>
+    <property name="Amount" type="int" value="100"/>
+    <property name="Type" value="money"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="22" name="Heal" type="Dialogue" x="288" y="48">
+   <properties>
+    <property name="Dialogue Type" value="none"/>
+    <property name="Event Name" value="heal"/>
+    <property name="Next 1" type="object" value="23"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="23" name="Drink" type="Dialogue" x="288" y="40">
+   <properties>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Mugshot" value="player"/>
+    <property name="Text 1" value="How delightful!"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="24" name="T/F Transport2" type="Radius Warp" x="156" y="60">
+   <properties>
+    <property name="Activation Radius" type="float" value="0.7"/>
+    <property name="Target Area" value="Transport2"/>
+    <property name="Target Object" type="object" value="42"/>
+    <property name="Warp Out" type="bool" value="true"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="25" name="VirusTrader" type="NPC" x="144" y="432">
+   <properties>
+    <property name="Asset Name" value="punk-navi-exe6_red"/>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Direction" value="Down Left"/>
+    <property name="Next 1" type="object" value="31"/>
+    <property name="Quest Exclusive" value="Virus Traders"/>
+    <property name="Quest State" value="unaccepted"/>
+    <property name="Text 1" value="You shouldn't be here. You'll interfere with our deal today."/>
+   </properties>
+   <point/>
+  </object>
+  <object id="29" name="VirusTrader" type="NPC" x="224" y="488">
+   <properties>
+    <property name="Asset Name" value="punk-navi-exe6_navy"/>
+    <property name="Dialogue Type" value="quest_switch"/>
+    <property name="Direction" value="Up Right"/>
+    <property name="Quest Exclusive" value="Virus Traders"/>
+    <property name="Quest Name" value="Virus Traders"/>
+    <property name="Quest State" value="unaccepted"/>
+    <property name="beat" type="object" value="39"/>
+    <property name="unaccepted" type="object" value="38"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="28" name="VirusTrader" type="NPC" x="104" y="480">
+   <properties>
+    <property name="Asset Name" value="punk-navi-exe6_navy"/>
+    <property name="Dialogue Type" value="quest_switch"/>
+    <property name="Direction" value="Up Left"/>
+    <property name="Quest Exclusive" value="Virus Traders"/>
+    <property name="Quest Name" value="Virus Traders"/>
+    <property name="Quest State" value="unaccepted"/>
+    <property name="beat" type="object" value="37"/>
+    <property name="unaccepted" type="object" value="35"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="30" name="Wait" type="Dialogue" x="264" y="504">
+   <properties>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Text 1" value="Wait why am I telling you that. Go play somewhere else!"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="38" name="Before" type="Dialogue" x="248" y="504">
+   <properties>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Next 1" type="object" value="30"/>
+    <property name="Text 1" value="This client is late."/>
+   </properties>
+   <point/>
+  </object>
+  <object id="31" name="VirusQuest" type="Dialogue" x="32" y="512">
+   <properties>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Mugshot" value="player"/>
+    <property name="Next 1" type="object" value="32"/>
+    <property name="Text 1" value="What kind of deal?"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="32" name="VirusQuest" type="Dialogue" x="32" y="480">
+   <properties>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Next 1" type="object" value="33"/>
+    <property name="Text 1" value="How about we show you. Our buyer flaked so I'll just go ahead and open this crate for you!"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="33" name="VirusQuest" type="Dialogue" x="32" y="448">
+   <properties>
+    <property name="Debug" type="bool" value="true"/>
+    <property name="Dialogue Type" value="none"/>
+    <property name="Event Name" value="virus traders"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="35" name="Before" type="Dialogue" x="112" y="512">
+   <properties>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Text 1" value="We're supposed to meet and important client here. Now scram!"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="37" name="After" type="Dialogue" x="128" y="512">
+   <properties>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Text 1" value="I can't believe he ditched us..."/>
+   </properties>
+   <point/>
+  </object>
+  <object id="39" name="After" type="Dialogue" x="248" y="488">
+   <properties>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Text 1" value="How did he move all the virus crates so quickly..."/>
+   </properties>
+   <point/>
+  </object>
+ </objectgroup>
+</map>

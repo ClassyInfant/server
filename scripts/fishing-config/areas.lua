@@ -35,8 +35,34 @@ return {
     FISHING_VIRUS = {
       E.encounter1,
     },
+  },
+
+    SubNet0 = {
+    CONSTANTS = {
+      LEADERBOARD           = {
+        ENABLED  = true,
+        MEM_AREA = "SubNet0",
+        KEY      = "fish_top10_v4",
+        MAX      = 10,
+        UNIQUE_PER = "secret",
+      },
+      VIRUS_CHANCE           = 0.001,
+      ASSET_NORMAL_DIR       = "icy-normal/",
+      ASSET_SWEET_DIR        = "icy-sweet/",
+      VIRUS_EXCLUDED          = {
+        light = true,
+        medium = true,
+        heavy      = true,
+        very_heavy = true,
+        brutal     = false,
+        legendary  = false,
+      },
+      FISH_REWARD_PER_LB = 25,
+      },
+    },
+
    
-  }
+  
 --  fisharea = {
 --    CONSTANTS = {
 --      LEADERBOARD           = {

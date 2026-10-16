@@ -17,6 +17,7 @@ local quest_exclusive_placeholders = {}  -- list of { area_id, object_id, quest_
 local quest_exclusive_npcs = {}           -- player_id -> { placeholder_id = bot_id }
 
 local npcs = {}                           -- global bot ID -> npc data (for all bots, including exclusive)
+local tick_npcs = {}
 local current_player_conversation = {}
 
 local npc_asset_folder = '/server/assets/ezlibs-assets/eznpcs/'
@@ -231,10 +232,93 @@ end
 function add_behaviour(npc,behaviour)
     if behaviour.type and behaviour.action then
         npc[behaviour.type] = behaviour
+        if
+            behaviour.type == "on_tick" and
+            npc.bot_id
+        then
+            tick_npcs[npc.bot_id] = npc
+        end
         if behaviour.initialize then
             behaviour.initialize(npc)
         end
     end
+end
+
+local idle_anim_by_direction = {
+    ["Up Right"] = "IDLE_UR",
+    ["Up Left"] = "IDLE_UL",
+    ["Down Right"] = "IDLE_DR",
+    ["Down Left"] = "IDLE_DL",
+
+    -- Four-direction NPC sheets do not have cardinal idle states.
+    ["Up"] = "IDLE_UR",
+    ["Right"] = "IDLE_DR",
+    ["Down"] = "IDLE_DL",
+    ["Left"] = "IDLE_UL",
+}
+
+local function set_npc_facing(npc, direction)
+    if not npc or not npc.bot_id or not direction then
+        return
+    end
+
+    Net.set_bot_direction(
+        npc.bot_id,
+        direction
+    )
+
+    local idle_state =
+        idle_anim_by_direction[
+            direction
+        ]
+
+    if idle_state then
+        pcall(
+            Net.animate_bot,
+            npc.bot_id,
+            idle_state,
+            true
+        )
+    end
+end
+
+local function face_npc_toward_player(
+    npc,
+    player_id
+)
+    local player_pos =
+        Net.get_player_position(
+            player_id
+        )
+
+    if not player_pos then
+        return
+    end
+
+    local npc_pos = npc
+
+    if Net.get_bot_position then
+        local ok, live_pos =
+            pcall(
+                Net.get_bot_position,
+                npc.bot_id
+            )
+
+        if ok and live_pos then
+            npc_pos = live_pos
+        end
+    end
+
+    local direction =
+        Direction.from_points(
+            npc_pos,
+            player_pos
+        )
+
+    set_npc_facing(
+        npc,
+        direction
+    )
 end
 
 function clear_player_conversation(player_id)
@@ -243,7 +327,10 @@ function clear_player_conversation(player_id)
     if bot_id then
         local npc = npcs[bot_id]
         if npc and not npc.dont_face_player then
-            Net.set_bot_direction(npc.bot_id, npc.direction)
+            set_npc_facing(
+                npc,
+                npc.direction
+            )
         end
         current_player_conversation[player_id] = nil
         ezbus:emit("dialogue_ended", {
@@ -265,11 +352,10 @@ function chat_behaviour()
                 current_player_conversation[player_id] = npc.bot_id
 
                 if not npc.dont_face_player then
-                    local player_pos = Net.get_player_position(player_id)
-                    local dir = player_pos and Direction.from_points(npc, player_pos) or nil
-                    if dir then
-                        Net.set_bot_direction(npc.bot_id, dir)
-                    end
+                    face_npc_toward_player(
+                        npc,
+                        player_id
+                    )
                 end
 
                 local dialogue = npc.first_dialogue
@@ -401,6 +487,7 @@ local function update_quest_exclusive_for_player(player_id)
         for placeholder_id, bot_id in pairs(quest_exclusive_npcs[player_id]) do
             Net.remove_bot(bot_id)
             npcs[bot_id] = nil
+			tick_npcs[bot_id] = nil
         end
         quest_exclusive_npcs[player_id] = nil
     end
@@ -516,10 +603,11 @@ function eznpcs.on_tick(delta_time)
         custom_events_script_loaded = true
         helpers.safe_require(custom_events_script_path)
     end
-    for bot_id, npc in pairs(npcs) do
-        if npc.on_tick then
-            npc.on_tick.action(npc,delta_time)
-        end
+    for bot_id, npc in pairs(tick_npcs) do
+        npc.on_tick.action(
+            npc,
+            delta_time
+        )
     end
 end
 
@@ -574,6 +662,7 @@ function eznpcs.handle_player_disconnect(player_id)
         for placeholder_id, bot_id in pairs(exclusive_npcs[player_id]) do
             Net.remove_bot(bot_id)
             npcs[bot_id] = nil
+			tick_npcs[bot_id] = nil
         end
         exclusive_npcs[player_id] = nil
     end
@@ -583,6 +672,7 @@ function eznpcs.handle_player_disconnect(player_id)
         for placeholder_id, bot_id in pairs(quest_exclusive_npcs[player_id]) do
             Net.remove_bot(bot_id)
             npcs[bot_id] = nil
+			tick_npcs[bot_id] = nil
         end
         quest_exclusive_npcs[player_id] = nil
     end
@@ -656,6 +746,7 @@ function eznpcs.remove_exclusive_npc(player_id, placeholder_id)
         if bot_id then
             Net.remove_bot(bot_id)
             npcs[bot_id] = nil
+			tick_npcs[bot_id] = nil
             exclusive_npcs[player_id][tostring(placeholder_id)] = nil
             printd("Removed exclusive NPC bot", bot_id, "for player", player_id)
         end
@@ -669,6 +760,7 @@ function eznpcs.remove_quest_exclusive_npc(player_id, placeholder_id)
         if bot_id then
             Net.remove_bot(bot_id)
             npcs[bot_id] = nil
+			tick_npcs[bot_id] = nil
             quest_exclusive_npcs[player_id][tostring(placeholder_id)] = nil
             printd("Removed quest‑exclusive NPC bot", bot_id, "for player", player_id)
         end
