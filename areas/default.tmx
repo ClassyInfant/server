@@ -342,10 +342,13 @@
   <object id="88" name="GMNavi" type="NPC" x="56" y="376">
    <properties>
     <property name="Asset Name" value="GMNavi"/>
-    <property name="Dialogue Type" value="first"/>
+    <property name="Dialogue Type" value="quest_switch"/>
     <property name="Direction" value="Down Left"/>
-    <property name="Next 1" type="object" value="101"/>
-    <property name="Text 1" value="Hello netizen."/>
+    <property name="Quest Name" value="Clean Junk"/>
+    <property name="accepted" type="object" value="94"/>
+    <property name="cleaned" type="object" value="98"/>
+    <property name="rewarded" type="object" value="108"/>
+    <property name="unaccepted" type="object" value="105"/>
    </properties>
    <point/>
   </object>
@@ -397,14 +400,14 @@
    </properties>
    <point/>
   </object>
-  <object id="94" name="JobPending" type="Dialogue" x="32" y="320">
+  <object id="94" name="JobPending" type="Dialogue" x="24" y="328">
    <properties>
     <property name="Dialogue Type" value="first"/>
     <property name="Text 1" value="Go on and clean up that mess."/>
    </properties>
    <point/>
   </object>
-  <object id="98" name="Complete" type="Dialogue" x="48" y="320">
+  <object id="98" name="Complete" type="Dialogue" x="40" y="328">
    <properties>
     <property name="Dialogue Type" value="first"/>
     <property name="Next 1" type="object" value="107"/>
@@ -431,17 +434,6 @@
    <properties>
     <property name="Dialogue Type" value="item"/>
     <property name="Item 1" type="object" value="104"/>
-   </properties>
-   <point/>
-  </object>
-  <object id="101" name="JobAccept" type="Dialogue" x="32" y="352">
-   <properties>
-    <property name="Dialogue Type" value="quest_switch"/>
-    <property name="Quest Name" value="Clean Junk"/>
-    <property name="accepted" type="object" value="94"/>
-    <property name="cleaned" type="object" value="98"/>
-    <property name="rewarded" type="object" value="108"/>
-    <property name="unaccepted" type="object" value="105"/>
    </properties>
    <point/>
   </object>
@@ -478,7 +470,7 @@
    </properties>
    <point/>
   </object>
-  <object id="107" name="Reset" type="Dialogue" x="48" y="296">
+  <object id="107" name="Reward" type="Dialogue" x="48" y="296">
    <properties>
     <property name="Dialogue Type" value="quest_event"/>
     <property name="Event Value" value="rewarded"/>

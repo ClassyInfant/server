@@ -1,4 +1,2 @@
 Name,Rank,ELO,Total Games,Wins,Losses
-Anon,?,25000,0,0,0
-Clssy_Inf,?,25000,0,0,0
-ClssyInfA,?,25000,0,0,0
+ClassyInf,?,25000,0,0,0

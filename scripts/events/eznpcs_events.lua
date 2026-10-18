@@ -341,31 +341,35 @@ name = "free_prog",
         return async(function()
             local player_mugshot = Net.get_player_mugshot(player_id)
             local area_id = Net.get_player_area(player_id)
-            local object_id = Net.get_object_by_id(area_id, relay_object.id)                      
+            local waiting = true                      
              
             --print(tostring(relay_object.id))           
             
             await(Async.message_player(player_id, "Oh no this cube is full of viruses!", player_mugshot.texture_path, player_mugshot.animation_path))
             local stats = await(ezencounters.begin_encounter(player_id, progfight, nil))
             local flags = _encounter_result_flags(stats)
-            
             if flags.ran or flags.lost then
                 return
             else
-                ezmemory.hide_object_from_player(player_id, area_id, relay_object.id)
-                if dialogue.custom_properties["Next 1"] == nil then
-                    return
-                else
-                    return dialogue.custom_properties["Next 1"]
+                Net:on("battle_exit", function(event)  
+                    if ezmemory.object_is_hidden_from_player(player_id, area_id, relay_object.id) == false then               
+                        --print("Prog battle over.")
+                        waiting = false
+                    
+                    end
+                end)
+                while waiting == true do
+                    await(Async.sleep(1))
+                    --print("Waiting")
                 end
-            end
-            
+                return dialogue.custom_properties["Next 1"]
+            end           
         end)
     end
 }
 eznpcs.add_event(free_prog)
 
---remove object listed in called custom_property ["Delete"]
+--remove object listed in called custom_property ["Delete"] and play animation for it
 local remove_object = {
     name = "remove_object",
     action = function(npc, player_id, dialogue, relay_object)
@@ -378,31 +382,62 @@ local remove_object = {
             local sfx = {
                 item_get='/server/assets/ezlibs-assets/sfx/item_get.ogg'
             }
+            local offsetx = 0
+            local offsety = 0
             Net.provide_asset(area_id, "/server/assets/ezlibs-assets/ezwarps/logout.png")
             Net.provide_asset(area_id, "/server/assets/ezlibs-assets/ezwarps/logout.animation")
+            Net.provide_asset(area_id, "/server/assets/teleporter.png")
+            Net.provide_asset(area_id, "/server/assets/teleporter.animation")
 
             if dialogue.custom_properties["Animate"] then
-                local warp_in_effect_id = "warp_in_effect_"..obj.id
-                print('spawning log in effect bot')
-                Net.create_bot(warp_in_effect_id, {
-                    warp_in = false,
-                    texture_path = "/server/assets/ezlibs-assets/ezwarps/logout.png",
-                    animation_path = "/server/assets/ezlibs-assets/ezwarps/logout.animation",
-                    area_id = area_id,
-                    x = obj.x,
-                    y = obj.y,
-                    z = obj.z
-                })
-                Net.animate_bot(warp_in_effect_id, "JACK_OUT", false)
-                Net.play_sound_for_player(player_id, '/server/assets/ezlibs-assets/ezwarps/log_out.ogg')
-                --sleep so that animation plays before bot is removed
-                Async.sleep(0.7).and_then(function()
-                Net.remove_bot(warp_in_effect_id)
-                end)
+                    if dialogue.custom_properties["Animation"] ~= "Explode" then
+                        --set variables base on options and preload assets [texture path][animation path][animation][sound]
+                        if dialogue.custom_properties["Animation"] == "Warp" then
+                            texture = "/server/assets/teleporter.png"
+                            animation = "/server/assets/teleporter.animation"
+                            state = "JACK_OUT"
+                            sound = '/server/assets/teleport.ogg'
+                            offsetx = .02
+                            offsety = .02
+                        end
+                        if dialogue.custom_properties["Animation"] == "Logout" then
+                            texture = "/server/assets/ezlibs-assets/ezwarps/logout.png"
+                            animation = "/server/assets/ezlibs-assets/ezwarps/logout.animation"
+                            state = "JACK_OUT"
+                            sound = '/server/assets/ezlibs-assets/ezwarps/log_out.ogg'
+                        end
+
+                        local warp_in_effect_id = "warp_in_effect_"..obj.id
+                        print('spawning log in effect bot')
+                        Net.create_bot(warp_in_effect_id, {
+                            warp_in = false,
+                            texture_path = texture,
+                            animation_path = animation,
+                            area_id = area_id,
+                            x = obj.x - offsetx,
+                            y = obj.y - offsety,
+                            z = obj.z
+                        })
+                        --hide object then play animation where it was
+                        ezmemory.hide_object_from_player(player_id, area_id, obj.id)
+                        Net.animate_bot(warp_in_effect_id, state, false)
+                        Net.play_sound_for_player(player_id, sound)
+                        --sleep so that animation plays before bot is removed
+                        Async.sleep(0.7).and_then(function()
+                        Net.remove_bot(warp_in_effect_id)
+                        end)
+                    elseif dialogue.custom_properties["Animation"] == "Explode" then
+                        --explode object then hide it part way through animation                  
+                        ezexplosions.explode(obj.id, area_id, 5)
+                        Async.sleep(0.5).and_then(function()
+                            ezmemory.hide_object_from_player(player_id, area_id, obj.id)
+                        end) 
+                    end
             else
+                --hide object and play sound
+                ezmemory.hide_object_from_player(player_id, area_id, obj.id)
                 Net.play_sound_for_player(player_id,sfx.item_get)
             end
-            ezmemory.hide_object_from_player(player_id, area_id, obj.id)
 
             if dialogue.custom_properties["Next 1"] == nil then
                 return
@@ -535,11 +570,14 @@ local virus_traders = {
             local flags = _encounter_result_flags(stats)
             local quest_name = ezquests.get_quest("Virus Traders")
             local event_value = 'beat'
+            local player_mugshot = Net.get_player_mugshot(player_id)
+
             if flags.ran or flags.lost then
                 return
             else               
                 if dialogue.custom_properties["Debug"] then
                     hide = ezmemory.hide_object_from_player_till_disconnect
+                    event_value = 'reset'
                 else
                     hide = ezmemory.hide_object_from_player
                 end         
@@ -553,28 +591,94 @@ local virus_traders = {
                 Net.exclude_actor_for_player(player_id, npc.bot_id)
             --checks for battle to exit to explode red crate         
                 Net:on("battle_exit", function(event)  
-                    if ezmemory.object_is_hidden_from_player(player_id, area_id, 10) == false then                    
+                    if ezmemory.object_is_hidden_from_player(player_id, area_id, 10) == false then 
+                        Net.lock_player_input(player_id)                   
                         ezexplosions.explode(10, area_id, 5)
                         Async.sleep(0.5).and_then(function()
                             hide(player_id, area_id, 10)
-                        end)
+                        end)                     
                     end
                 end)
-            --update quest
-                ezquests.quest_event(player_id,quest_name.name,event_value)              
+
+                while ezmemory.object_is_hidden_from_player(player_id, area_id, 10) == false do
+                    --print("Waiting for crate to be gone")
+                    await(Async.sleep(1))
+                end
+                await(Async.message_player(player_id, "Looks like he got away...", player_mugshot.texture_path, player_mugshot.animation_path))
+                await(Async.message_player(player_id, "Huh? The goods! They're all gone... where did...", "/server/assets/ezlibs-assets/eznpcs/mug/punk-navi-exe6_navy.png", "/server/assets/ezlibs-assets/eznpcs/mug/mug.animation"))
+
+                await(Async.sleep(0.5))
             --security interaction
-            local securityOne = 123456
-            local securityTwo = 654321
+                local securityOne = 123456
+                local securityTwo = 654321
             --securityOne
-            Net.create_bot(securityOne, {GMNaviOne, area_id, true, /server/assets/ezlibs-assets/eznpcs/sheet/GMNavi.png, /server/assets/ezlibs-assets/eznpcs/sheet/GMNavi.animation, IDLE_DL, 3, 14, 1, 'Down Left', true })
-            Net.exclude_actor_for_player(!player_id, securityOne)
-            Net.include_actor_for_player(player_id, securityOne)
+                Net.play_sound_for_player(player_id, '/server/assets/teleport.ogg')
+                Net.create_bot(securityOne, {
+                    warp_in = true, 
+                    texture_path = "/server/assets/ezlibs-assets/eznpcs/sheet/GMNavi.png",
+                    animation_path = "/server/assets/ezlibs-assets/eznpcs/sheet/GMNavi.animation",
+                    area_id = area_id,
+                    x = 3, 
+                    y = 14,
+                    z = 0, 
+                    direction = "Down Left",
+                    animation = "SHOOT_DL",
+                    solid = true 
+                })
+            --Net.exclude_actor_for_player(!player_id, securityOne)
+                Net.include_actor_for_player(player_id, securityOne)
+                await(Async.sleep(0.2))
             --securityTwo
-            Net.create_bot(bot_id, { name?, area_id?, warp_in?, texture_path?, animation_path?, animation?, x?, y?, z?, direction?, solid? })
-            Net.exclude_actor_for_player(!player_id, actor_id)
-            Net.include_actor_for_player(player_id, actor_id)
+                Net.play_sound_for_player(player_id, '/server/assets/teleport.ogg')
+                Net.create_bot(securityTwo, {
+                    warp_in = true, 
+                    texture_path = "/server/assets/ezlibs-assets/eznpcs/sheet/GMNavi.png",
+                    animation_path = "/server/assets/ezlibs-assets/eznpcs/sheet/GMNavi.animation",
+                    area_id = area_id,
+                    x = 6, 
+                    y = 15,
+                    z = 0, 
+                    direction = "Down Right",
+                    animation = "SHOOT_DR",
+                    solid = true 
+                })
+                await(Async.sleep(0.5))
+            -- Net.exclude_actor_for_player(!player_id, actor_id)
+                Net.include_actor_for_player(player_id, securityTwo)
+
+                Net.message_player(player_id, "Don't move! You are under arrest for illegal virus trading.", "/server/assets/ezlibs-assets/eznpcs/mug/GMNavi.png", "/server/assets/ezlibs-assets/eznpcs/mug/mug.animation")
+              
+                Net.message_player(player_id, "This isn't fair! I swear we're just hired hands. We didn't know what was in the crates!", "/server/assets/ezlibs-assets/eznpcs/mug/punk-navi-exe6_navy.png", "/server/assets/ezlibs-assets/eznpcs/mug/mug.animation")
+
+                Net.message_player(player_id, "We've been tailing you and your buddies for a while. We were just waiting for one of you to pull something.", "/server/assets/ezlibs-assets/eznpcs/mug/GMNavi.png", "/server/assets/ezlibs-assets/eznpcs/mug/mug.animation")
+                
+                Net.message_player(player_id, "We're sorry we ended up getting a member of the public involved in this.", "/server/assets/ezlibs-assets/eznpcs/mug/GMNavi.png", "/server/assets/ezlibs-assets/eznpcs/mug/mug.animation")
+
+                Net.message_player(player_id, "I'm just glad you didn't assume I was with them.", player_mugshot.texture_path, player_mugshot.animation_path)
+                
+            --update quest
+                ezquests.quest_event(player_id,quest_name.name,event_value)
+                Net.unlock_player_input(player_id)
+
+            --NPC text
+                Net:on("actor_interaction", function(event)
+                    -- { player_id: string, actor_id: string, button: number }
+
+                    if event.actor_id == tostring(securityOne) then
+                        Net.message_player(event.player_id, "Glad you were able to finish off those viruses.", "/server/assets/ezlibs-assets/eznpcs/mug/GMNavi.png", "/server/assets/ezlibs-assets/eznpcs/mug/mug.animation")
+                    end
+
+                    if event.actor_id == tostring(securityTwo) then
+                        Net.message_player(event.player_id, "We have to wait for a transport to move these guys without them being able to jack out.", "/server/assets/ezlibs-assets/eznpcs/mug/GMNavi.png", "/server/assets/ezlibs-assets/eznpcs/mug/mug.animation")
+                    end
+                    -- actor_id is a player or bot id
+                    
+                end)    
             end
         end)
     end
 }
 eznpcs.add_event(virus_traders)
+
+
+

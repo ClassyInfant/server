@@ -55,9 +55,7 @@ local encounter1 = {
         {2,2,2,1,1,1},
         {2,2,2,1,1,1},
         {2,2,2,1,1,1},
-    },
-    music={
-        path="bn5_battle.mid"
+
     },
 
     results_callback = give_result_awards --function (player_id,encounter_info,stats)
@@ -98,9 +96,7 @@ local encounter2 = {
         {2,2,2,1,1,1},
         {2,2,2,1,1,1},
     },
-    music={
-        path="bn5_battle.mid"
-    },
+
 
     results_callback = give_result_awards --function (player_id,encounter_info,stats)
 }
@@ -140,9 +136,7 @@ local encounter3 = {
         {2,2,2,1,1,1},
         {2,2,2,1,1,1},
     },
-    music={
-        path="bn5_battle.mid"
-    },
+
 
     results_callback = give_result_awards --function (player_id,encounter_info,stats)
 }
