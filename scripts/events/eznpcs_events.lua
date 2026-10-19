@@ -7,6 +7,8 @@ local ezbus = require('scripts/ezlibs-scripts/ezbus')
 local ezexplosions = require('scripts/ezlibs-scripts/ezexplosions')
 local ezquests = require('scripts/ezlibs-scripts/ezquests')
 
+local is_boss = false
+
 
 function await(v) return Async.await(v) end
 
@@ -573,6 +575,7 @@ local virus_traders = {
             local player_mugshot = Net.get_player_mugshot(player_id)
 
             if flags.ran or flags.lost then
+                Net.transfer_player(player_id, "Transport", true, 24, 6, 2, "Down")
                 return
             else               
                 if dialogue.custom_properties["Debug"] then
@@ -589,16 +592,20 @@ local virus_traders = {
                 hide(player_id, area_id, 7)
                 hide(player_id, area_id, 8)
                 Net.exclude_actor_for_player(player_id, npc.bot_id)
-            --checks for battle to exit to explode red crate         
-                Net:on("battle_exit", function(event)  
-                    if ezmemory.object_is_hidden_from_player(player_id, area_id, 10) == false then 
-                        Net.lock_player_input(player_id)                   
-                        ezexplosions.explode(10, area_id, 5)
-                        Async.sleep(0.5).and_then(function()
-                            hide(player_id, area_id, 10)
-                        end)                     
-                    end
-                end)
+            --checks for battle to exit to explode red crate 
+                   
+                    Net:on("battle_exit", function(event)
+        
+                            if ezmemory.object_is_hidden_from_player(player_id, area_id, 10) == false then 
+                                Net.lock_player_input(player_id)                   
+                                ezexplosions.explode(10, area_id, 5)
+                                Async.sleep(0.5).and_then(function()
+                                    hide(player_id, area_id, 10)
+                                end)                     
+                            end
+
+                    end)
+                
 
                 while ezmemory.object_is_hidden_from_player(player_id, area_id, 10) == false do
                     --print("Waiting for crate to be gone")
@@ -609,76 +616,46 @@ local virus_traders = {
 
                 await(Async.sleep(0.5))
             --security interaction
-                local securityOne = 123456
-                local securityTwo = 654321
+            local securityOne = Net.get_object_by_id(area_id, 49)
+            local securityTwo = Net.get_object_by_id(area_id, 50)
+            
             --securityOne
-                Net.play_sound_for_player(player_id, '/server/assets/teleport.ogg')
-                Net.create_bot(securityOne, {
-                    warp_in = true, 
-                    texture_path = "/server/assets/ezlibs-assets/eznpcs/sheet/GMNavi.png",
-                    animation_path = "/server/assets/ezlibs-assets/eznpcs/sheet/GMNavi.animation",
-                    area_id = area_id,
-                    x = 3, 
-                    y = 14,
-                    z = 0, 
-                    direction = "Down Left",
-                    animation = "SHOOT_DL",
-                    solid = true 
-                })
-            --Net.exclude_actor_for_player(!player_id, securityOne)
-                Net.include_actor_for_player(player_id, securityOne)
-                await(Async.sleep(0.2))
+            create_bot_from_object(area_id, securityOne, player_id)
+            Net.play_sound_for_player(player_id, '/server/assets/teleport.ogg')
+            await(Async.sleep(0.2))
+
             --securityTwo
-                Net.play_sound_for_player(player_id, '/server/assets/teleport.ogg')
-                Net.create_bot(securityTwo, {
-                    warp_in = true, 
-                    texture_path = "/server/assets/ezlibs-assets/eznpcs/sheet/GMNavi.png",
-                    animation_path = "/server/assets/ezlibs-assets/eznpcs/sheet/GMNavi.animation",
-                    area_id = area_id,
-                    x = 6, 
-                    y = 15,
-                    z = 0, 
-                    direction = "Down Right",
-                    animation = "SHOOT_DR",
-                    solid = true 
-                })
-                await(Async.sleep(0.5))
-            -- Net.exclude_actor_for_player(!player_id, actor_id)
-                Net.include_actor_for_player(player_id, securityTwo)
+            create_bot_from_object(area_id, securityTwo, player_id)
+            Net.play_sound_for_player(player_id, '/server/assets/teleport.ogg')
+            await(Async.sleep(0.5))
 
-                Net.message_player(player_id, "Don't move! You are under arrest for illegal virus trading.", "/server/assets/ezlibs-assets/eznpcs/mug/GMNavi.png", "/server/assets/ezlibs-assets/eznpcs/mug/mug.animation")
-              
-                Net.message_player(player_id, "This isn't fair! I swear we're just hired hands. We didn't know what was in the crates!", "/server/assets/ezlibs-assets/eznpcs/mug/punk-navi-exe6_navy.png", "/server/assets/ezlibs-assets/eznpcs/mug/mug.animation")
-
-                Net.message_player(player_id, "We've been tailing you and your buddies for a while. We were just waiting for one of you to pull something.", "/server/assets/ezlibs-assets/eznpcs/mug/GMNavi.png", "/server/assets/ezlibs-assets/eznpcs/mug/mug.animation")
+            --dialogue
+            Net.message_player(player_id, "Don't move! You are under arrest for illegal virus trading.", "/server/assets/ezlibs-assets/eznpcs/mug/GMNavi.png", "/server/assets/ezlibs-assets/eznpcs/mug/mug.animation")           
+            Net.message_player(player_id, "This isn't fair! I swear we're just hired hands. We didn't know what was in the crates!", "/server/assets/ezlibs-assets/eznpcs/mug/punk-navi-exe6_navy.png", "/server/assets/ezlibs-assets/eznpcs/mug/mug.animation")
+            Net.message_player(player_id, "We've been tailing you and your buddies for a while. We were just waiting for one of you to pull something.", "/server/assets/ezlibs-assets/eznpcs/mug/GMNavi.png", "/server/assets/ezlibs-assets/eznpcs/mug/mug.animation")     
+            Net.message_player(player_id, "We're sorry we ended up getting a member of the public involved in this.", "/server/assets/ezlibs-assets/eznpcs/mug/GMNavi.png", "/server/assets/ezlibs-assets/eznpcs/mug/mug.animation")
+            Net.message_player(player_id, "I'm just glad you didn't assume I was with them.", player_mugshot.texture_path, player_mugshot.animation_path)
                 
-                Net.message_player(player_id, "We're sorry we ended up getting a member of the public involved in this.", "/server/assets/ezlibs-assets/eznpcs/mug/GMNavi.png", "/server/assets/ezlibs-assets/eznpcs/mug/mug.animation")
+            --update quest            
+            ezquests.quest_event(player_id,quest_name.name,event_value)           
+            Net.unlock_player_input(player_id)
 
-                Net.message_player(player_id, "I'm just glad you didn't assume I was with them.", player_mugshot.texture_path, player_mugshot.animation_path)
-                
-            --update quest
-                ezquests.quest_event(player_id,quest_name.name,event_value)
-                Net.unlock_player_input(player_id)
-
-            --NPC text
-                Net:on("actor_interaction", function(event)
-                    -- { player_id: string, actor_id: string, button: number }
-
-                    if event.actor_id == tostring(securityOne) then
-                        Net.message_player(event.player_id, "Glad you were able to finish off those viruses.", "/server/assets/ezlibs-assets/eznpcs/mug/GMNavi.png", "/server/assets/ezlibs-assets/eznpcs/mug/mug.animation")
-                    end
-
-                    if event.actor_id == tostring(securityTwo) then
-                        Net.message_player(event.player_id, "We have to wait for a transport to move these guys without them being able to jack out.", "/server/assets/ezlibs-assets/eznpcs/mug/GMNavi.png", "/server/assets/ezlibs-assets/eznpcs/mug/mug.animation")
-                    end
-                    -- actor_id is a player or bot id
-                    
-                end)    
+            --remove quest door in Transport2
+            ezmemory.hide_object_from_player(player_id, "Transport2", 48)   
             end
         end)
     end
 }
 eznpcs.add_event(virus_traders)
 
+local test = {
+    name = "test",
+    action = function(npc, player_id, dialogue, relay_object)
 
-
+        return async(function()
+            
+            
+        end)
+    end
+}
+eznpcs.add_event(test)

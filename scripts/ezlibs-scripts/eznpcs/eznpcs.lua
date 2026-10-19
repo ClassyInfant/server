@@ -141,6 +141,7 @@ function create_bot_from_object(area_id, object, player_id)
     local npc_asset_name = object.custom_properties["Asset Name"]
     local npc_animation_name = object.custom_properties["Animation Name"] or false
     local npc_mug_animation_name = object.custom_properties["Mug Animation Name"] or false
+    local npc_animation_state = object.custom_properties["State"]
     local npc_turns_to_talk = is_property_true(object.custom_properties["Dont Face Player"])
     local direction = object.custom_properties.Direction
 
@@ -149,7 +150,7 @@ function create_bot_from_object(area_id, object, player_id)
 
     -- Create the bot (initially visible to all)
     local npc = create_npc(area_id, npc_asset_name, x, y, z, direction,
-                           object.name, npc_animation_name, npc_mug_animation_name, npc_turns_to_talk)
+                           object.name, npc_animation_name, npc_mug_animation_name, npc_animation_state, npc_turns_to_talk)
 
     if not npc then 
         printd("Failed to create bot for", npc_asset_name)
@@ -183,7 +184,7 @@ function create_bot_from_object(area_id, object, player_id)
     return npc
 end
 
-function create_npc(area_id,asset_name,x,y,z,direction,bot_name,animation_name,mug_animation_name,npc_turns_to_talk)
+function create_npc(area_id,asset_name,x,y,z,direction,bot_name,animation_name,mug_animation_name,animation_state,npc_turns_to_talk)
     local texture_path = npc_asset_folder.."sheet/"..asset_name..".png"
     local animation_path = npc_asset_folder.."sheet/"..asset_name..".animation"
     local mug_animation_path = generic_npc_mug_animation_path
@@ -205,7 +206,8 @@ function create_npc(area_id,asset_name,x,y,z,direction,bot_name,animation_name,m
         name=name, 
         area_id=area_id, 
         texture_path=texture_path, 
-        animation_path=animation_path, 
+        animation_path=animation_path,
+        animation=animation_state,
         mug_animation_path=mug_animation_path,
         x=x, 
         y=y, 

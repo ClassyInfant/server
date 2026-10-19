@@ -303,7 +303,7 @@
   <object id="47" name="Script" type="Dialogue" x="312" y="656">
    <properties>
     <property name="Dialogue Type" value="none"/>
-    <property name="Event Name" value="virus traders"/>
+    <property name="Event Name" value="test"/>
    </properties>
    <point/>
   </object>
