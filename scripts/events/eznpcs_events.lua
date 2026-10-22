@@ -753,6 +753,8 @@ local virus_traders_2 = {
             local area_id = Net.get_player_area(player_id)
             local color = {r=144,g=80,b=240,a=255}
             local color2 = {r=144,g=80,b=240,a=0}
+            local colorex = {r=255,g=216,b=44,a=200}
+            local colorex2 = {r=255,g=216,b=44,a=0}
             local marker = Net.get_object_by_id(area_id,84)
             local player_mugshot = Net.get_player_mugshot(player_id)
             local texture = "/server/assets/ezlibs-assets/ezwarps/logout.png"
@@ -764,6 +766,8 @@ local virus_traders_2 = {
             local warp_in_effect_id = "warp_in_effect_"..npc.bot_id
             local circusmanpng = "/server/assets/ezlibs-assets/eznpcs/sheet/circusman.png"
             local circusmananimation = "/server/assets/ezlibs-assets/eznpcs/sheet/circusman.animation"
+            local quest_name = ezquests.get_quest("Virus Traders")
+            local event_value = 'circusman'
             --preload assets
             
             Net.provide_asset(area_id, "/server/assets/ezlibs-assets/ezwarps/logout.png")
@@ -830,17 +834,27 @@ local virus_traders_2 = {
                 Net:on("battle_exit", function(event)
                 
                     if ezquests.get_player_quest_state(event.player_id, "Virus Traders") ~= 'circusman' then                    
-                        ezexplosions.explode(npc.bot_id, area_id, 5)
-                        Async.sleep(0.5).and_then(function()
-                            Net.exclude_actor_for_player(player_id, npc.bot_id)
-                        end)                     
+                        --explode
+                        boom = ezexplosions.explode(npc.bot_id, area_id, nil)
+                        
+
                     end
                 end)
-                if dialogue.custom_properties["Next 1"] == nil then
-                    return
-                else
-                    return dialogue.custom_properties["Next 1"]
-                end
+                Net.message_player(player_id, "Ahoo, hoo, hoo!!", "/server/assets/ezlibs-assets/eznpcs/mug/circusman.png", "/server/assets/ezlibs-assets/eznpcs/mug/circusmanmug.animation")         
+                await(Async.message_player(player_id, "This was only one store house of the viruses I collected... this isn't over...", "/server/assets/ezlibs-assets/eznpcs/mug/circusman.png", "/server/assets/ezlibs-assets/eznpcs/mug/circusmanmug.animation"))                 
+                --fade out with red and increase explosions
+                Net.fade_player_camera(player_id, colorex, 0.5)
+                ezexplosions.explode(npc.bot_id, area_id, 8)
+                ezexplosions.explode(npc.bot_id, area_id, 6)
+                ezexplosions.explode(npc.bot_id, area_id, 4)
+                await(Async.sleep(0.5))
+                Net.fade_player_camera(player_id, colorex2, 0.2)
+                --remove npc and the infinate booms set quest flag
+                Net.exclude_actor_for_player(player_id, npc.bot_id)
+                boom.stopped = true
+                ezquests.quest_event(player_id,quest_name.name,event_value)
+                Net.unlock_player_input(player_id)
+                
             end            
         end)       
     end
@@ -850,11 +864,12 @@ eznpcs.add_event(virus_traders_2)
 local virus_crate = {
     name = "virus crate",
     action = function(npc, player_id, dialogue, relay_object)
-        local area_id = Net.get_player_area(player_id)
-        local stats = await(ezencounters.begin_encounter(player_id, junkfight, nil))
-        local flags = _encounter_result_flags(stats)
-        local waiting = true
+        
         return async(function()
+            local area_id = Net.get_player_area(player_id)
+            local stats = await(ezencounters.begin_encounter(player_id, junkfight, nil))
+            local flags = _encounter_result_flags(stats)
+            local waiting = true
             if flags.ran or flags.lost then
                 Net.transfer_player(player_id, "Transport", true, 24, 6, 2, "Down")
                 return
@@ -887,13 +902,25 @@ local test = {
     action = function(npc, player_id, dialogue, relay_object)
 
         return async(function()
-            local color = {r=144,g=80,b=240,a=255}
-            local color2 = {r=144,g=80,b=240,a=0}
-            Net.fade_player_camera(player_id, color, 0.5)
+            local area_id = Net.get_player_area(player_id)
+          
+            local colorex = {r=255,g=216,b=44,a=200}
+            local colorex2 = {r=255,g=216,b=44,a=0}
+            local boom = ezexplosions.explode(npc.bot_id, area_id, nil)
+            Net.message_player(player_id, "Ahoo, hoo, hoo!!", "/server/assets/ezlibs-assets/eznpcs/mug/circusman.png", "/server/assets/ezlibs-assets/eznpcs/mug/circusmanmug.animation")         
+            await(Async.message_player(player_id, "This was only one store house of the viruses I collected... this isn't over...", "/server/assets/ezlibs-assets/eznpcs/mug/circusman.png", "/server/assets/ezlibs-assets/eznpcs/mug/circusmanmug.animation"))                 
+            --fade out with red and increase explosions
+            Net.fade_player_camera(player_id, colorex, 0.5)
+            ezexplosions.explode(npc.bot_id, area_id, 8)
+            ezexplosions.explode(npc.bot_id, area_id, 6)
+            ezexplosions.explode(npc.bot_id, area_id, 4)
             await(Async.sleep(0.5))
-            Net.fade_player_camera(player_id, color2, 0.5)
+            Net.fade_player_camera(player_id, colorex2, 0.2)
+            --remove npc and the infinate booms set quest flag
+            Net.exclude_actor_for_player(player_id, npc.bot_id)
+            boom.stopped = true
 
-            
+            return          
         end)
     end
 }
