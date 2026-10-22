@@ -5,6 +5,8 @@
   <property name="Background Animation" value="/server/assets/bg/07a-centralarea.animation"/>
   <property name="Background Texture" value="/server/assets/bg/07a-centralarea.png"/>
   <property name="Forced Base HP" type="int" value="300"/>
+  <property name="Foreground Animation" value="/server/assets/fg/SafeZone+PVP.animation"/>
+  <property name="Foreground Texture" value="/server/assets/fg/SafeZone+PVP.png"/>
   <property name="Full Heal" type="bool" value="true"/>
   <property name="Honor HPMem" type="bool" value="true"/>
   <property name="Name" value="CL_Net"/>

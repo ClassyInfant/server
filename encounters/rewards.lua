@@ -146,6 +146,14 @@ return {
         },
     },
 
+    CircusMan = {
+        [1] = {
+            low = {type="money",value=1000},
+            mid = {type="money",value=2000},
+            high = {type="money",value=3000},
+        },
+    },
+
     Shrimpy = {
         [1] = {
             low = {type="money",value=80},

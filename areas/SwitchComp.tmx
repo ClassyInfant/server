@@ -12,6 +12,7 @@
   <property name="Mystery Data Maximum" type="int" value="1"/>
   <property name="Mystery Data Minimum" type="int" value="1"/>
   <property name="Name" value="SwitchComp"/>
+  <property name="OctoPVP" type="bool" value="false"/>
   <property name="Song" value="/server/assets/Funk_Retro.ogg"/>
  </properties>
  <tileset firstgid="1" source="../assets/rainbow_floor.tsx"/>

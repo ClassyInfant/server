@@ -190,8 +190,12 @@ local quest_virus_trader = {
     handle_event_async = function (self,player_id,event_value)
         return async(function ()
             local accpeted = ezquests.get_player_quest_flag(player_id,self.name,'beat')
+            local circusman = ezquests.get_player_quest_flag(player_id,self.name,'circusman')
             if accpeted or event_value == "beat" then
                 --set the flag if the quest is accepted, or we are accpeting it
+                ezquests.set_player_quest_flag(player_id,self.name,event_value,true)
+            end
+            if circusman or event_value == 'circusman' then
                 ezquests.set_player_quest_flag(player_id,self.name,event_value,true)
             end
             if event_value == 'reset' then
@@ -200,6 +204,9 @@ local quest_virus_trader = {
         end)
     end,
     determine_state = function (self,player_id)
+        if ezquests.get_player_quest_flag(player_id,self.name,'circusman') then
+            return "circusman"
+        end
         if ezquests.get_player_quest_flag(player_id,self.name,'beat') then
             return "beat"
         end

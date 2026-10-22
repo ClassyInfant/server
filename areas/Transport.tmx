@@ -8,6 +8,7 @@
   <property name="Full Heal" type="bool" value="true"/>
   <property name="Honor HPMem" type="bool" value="true"/>
   <property name="Name" value="Transprt_1"/>
+  <property name="OctoPVP" type="bool" value="false"/>
   <property name="Song" value="/server/assets/exe2-densankuukou.ogg"/>
  </properties>
  <tileset firstgid="1" source="../assets/central_platform.tsx"/>
@@ -437,7 +438,6 @@
   <object id="69" name="HasKey" type="Dialogue" x="424" y="664">
    <properties>
     <property name="Dialogue Type" value="question"/>
-    <property name="Mugshot" value="player"/>
     <property name="Next 1" type="object" value="70"/>
     <property name="Next 2" type="object" value="87"/>
     <property name="Text 1" value="Use Ecrypt_Key?"/>

@@ -12,6 +12,7 @@
   <property name="Mystery Data Maximum" type="int" value="2"/>
   <property name="Mystery Data Minimum" type="int" value="1"/>
   <property name="Name" value="CoffeeComp"/>
+  <property name="OctoPVP" type="bool" value="false"/>
   <property name="Song" value="/server/assets/031_-_Animal_Crossing_New_Leaf_(3DS)_-_5_PM.ogg"/>
  </properties>
  <tileset firstgid="1" source="../assets/rainbow_floor.tsx"/>
@@ -173,6 +174,7 @@
     <property name="Dialogue Type" value="first"/>
     <property name="Direction" value="Down Left"/>
     <property name="Next 1" type="object" value="31"/>
+    <property name="OctoPVP" type="bool" value="false"/>
     <property name="Quest Exclusive" value="Virus Traders"/>
     <property name="Quest State" value="unaccepted"/>
     <property name="Text 1" value="You shouldn't be here. Unless you're here to make a deal."/>

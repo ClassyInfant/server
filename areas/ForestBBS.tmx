@@ -7,8 +7,11 @@
   <property name="Background Vel X" type="float" value="0.19999999999999996"/>
   <property name="Background Vel Y" type="float" value="0.1"/>
   <property name="Forced Base HP" type="int" value="300"/>
+  <property name="Foreground Animation" value="/server/assets/fg/SafeZone.animation"/>
+  <property name="Foreground Texture" value="/server/assets/fg/SafeZone.png"/>
   <property name="Honor HPMem" type="bool" value="true"/>
   <property name="Name" value="Forest_ChatR"/>
+  <property name="OctoPVP" type="bool" value="false"/>
   <property name="Song" value="/server/assets/exe45-woodman.ogg"/>
  </properties>
  <tileset firstgid="1" source="../assets/central_platform.tsx"/>

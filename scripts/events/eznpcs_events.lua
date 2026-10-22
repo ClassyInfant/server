@@ -7,8 +7,6 @@ local ezbus = require('scripts/ezlibs-scripts/ezbus')
 local ezexplosions = require('scripts/ezlibs-scripts/ezexplosions')
 local ezquests = require('scripts/ezlibs-scripts/ezquests')
 
-local is_boss = false
-
 
 function await(v) return Async.await(v) end
 
@@ -27,7 +25,7 @@ local give_result_awards = function (player_id,encounter_info,stats)
         if area_id == "default" then
             Net.transfer_player(player_id, "default", true, 14, 15, 0, "Down")
         end
-        if area_id == "Transport" or area_id == "Transport2" or area_id == "SwitchComp" or area_id == "KitchenComp" or area_id == "CoffeeComp" then
+        if area_id == "Transport" or area_id == "Transport2" or area_id == "SwitchComp" or area_id == "KitchenComp" or area_id == "CoffeeComp" or area_id == "Transport3" then
             Net.transfer_player(player_id, "Transport", true, 24, 6, 2, "Down")
         end
         if area_id == nil then
@@ -199,6 +197,86 @@ local subnet_1_boss_fight = {
     --results_callback = boss_rewards
 }
 
+local circusman = {
+    name="circusman_boss",
+    path="/server/assets/ezlibs-assets/ezencounters/ezencounters.zip",
+    weight=10,
+    enemies={
+        {name="CircusMan",rank=1},
+    },
+    obstacles={
+    },
+    positions={
+        {0,0,0,0,0,0},
+        {0,0,0,0,1,0},
+        {0,0,0,0,0,0},
+    },
+    obstacle_positions={
+        {0,0,0,0,0,0},
+        {0,0,0,0,0,0},
+        {0,0,0,0,0,0},
+    },
+    player_positions={
+        {0,0,0,0,0,0},
+        {0,1,0,0,0,0},
+        {0,0,0,0,0,0},
+    },
+    tiles={
+        {14,1,1,1,1,1},
+        {1,1,1,1,1,1},
+        {14,1,1,1,1,1},
+    },
+    teams={
+        {2,2,2,1,1,1},
+        {2,2,2,1,1,1},
+        {2,2,2,1,1,1},
+    },
+    music={
+        path="bn6_boss.mid"
+    },
+    results_callback = give_result_awards
+}
+
+local circusman_rematch = {
+    name="circusman_boss",
+    path="/server/assets/ezlibs-assets/ezencounters/ezencounters.zip",
+    weight=10,
+    enemies={
+        {name="CircusMan",rank=1},
+    },
+    obstacles={
+    },
+    positions={
+        {0,0,0,0,0,0},
+        {0,0,0,0,1,0},
+        {0,0,0,0,0,0},
+    },
+    obstacle_positions={
+        {0,0,0,0,0,0},
+        {0,0,0,0,0,0},
+        {0,0,0,0,0,0},
+    },
+    player_positions={
+        {0,0,0,0,0,0},
+        {0,1,0,0,0,0},
+        {0,0,0,0,0,0},
+    },
+    tiles={
+        {14,1,1,1,1,1},
+        {1,1,1,1,1,1},
+        {14,1,1,1,1,1},
+    },
+    teams={
+        {2,2,2,1,1,1},
+        {2,2,2,1,1,1},
+        {2,2,2,1,1,1},
+    },
+    music={
+        path="bn6_boss.mid"
+    },
+    --results_callback = give_result_awards
+}
+
 local bass = {
     name="bass_boss",
     path="/server/assets/ezlibs-assets/ezencounters/ezencounters.zip",
@@ -279,108 +357,17 @@ local virustraders = {
     results_callback = give_result_awards
 }
 
---subnet_1 junk quest encounter, cleanup, and save
-local clean_junk = {
-    name = "clean_junk",
-    action = function(npc, player_id, dialogue, relay_object)
-        return async(function()
-            local player_mugshot = Net.get_player_mugshot(player_id)
-            local area_id = Net.get_player_area(player_id)
-            local object_id = Net.get_object_by_id(area_id, relay_object.id)                      
-             
-            --print(tostring(relay_object.id))           
-            
-            await(Async.message_player(player_id, "Cleaning up this junk...", player_mugshot.texture_path, player_mugshot.animation_path))
-            local stats = await(ezencounters.begin_encounter(player_id, junkfight, nil))
-            local flags = _encounter_result_flags(stats)
-            
-            if flags.ran or flags.lost then
-                return
-            else
-                ezmemory.hide_object_from_player(player_id, area_id, relay_object.id)
-                if dialogue.custom_properties["Next 1"] == nil then
-                    return
-                else
-                    return dialogue.custom_properties["Next 1"]
-                end
-            end
-            
-        end)
-    end
-}
-eznpcs.add_event(clean_junk)
-
-local subnet_1_boss = {
-    name = "SubNet1 Boss",
-    action = function(npc, player_id, dialogue, relay_object)
-        return async(function()           
-            
-            local stats = await(ezencounters.begin_encounter(player_id, subnet_1_boss_fight, nil))
-            local flags = _encounter_result_flags(stats)
-            
-        end)
-    end
-}
-eznpcs.add_event(subnet_1_boss)
-
-local bass_boss = {
-    name = "Bass Boss",
-    action = function(npc, player_id, dialogue, relay_object)
-        return async(function()           
-            
-            local stats = await(ezencounters.begin_encounter(player_id, bass, nil))
-            local flags = _encounter_result_flags(stats)
-            
-        end)
-    end
-}
-eznpcs.add_event(bass_boss)
-
---box of viruses name is a hold over from an older idea
-local free_prog = {
-name = "free_prog",
-    action = function(npc, player_id, dialogue, relay_object)
-        return async(function()
-            local player_mugshot = Net.get_player_mugshot(player_id)
-            local area_id = Net.get_player_area(player_id)
-            local waiting = true                      
-             
-            --print(tostring(relay_object.id))           
-            
-            await(Async.message_player(player_id, "Oh no this cube is full of viruses!", player_mugshot.texture_path, player_mugshot.animation_path))
-            local stats = await(ezencounters.begin_encounter(player_id, progfight, nil))
-            local flags = _encounter_result_flags(stats)
-            if flags.ran or flags.lost then
-                return
-            else
-                Net:on("battle_exit", function(event)  
-                    if ezmemory.object_is_hidden_from_player(player_id, area_id, relay_object.id) == false then               
-                        --print("Prog battle over.")
-                        waiting = false
-                    
-                    end
-                end)
-                while waiting == true do
-                    await(Async.sleep(1))
-                    --print("Waiting")
-                end
-                return dialogue.custom_properties["Next 1"]
-            end           
-        end)
-    end
-}
-eznpcs.add_event(free_prog)
-
---remove object listed in called custom_property ["Delete"] and play animation for it
+--remove object listed in called custom_property ["Delete"] or relay object and play animation for it
 local remove_object = {
     name = "remove_object",
     action = function(npc, player_id, dialogue, relay_object)
         return async(function()
             local area_id = Net.get_player_area(player_id)
+
             local objnum = dialogue.custom_properties["Delete"]
             --print(objnum)
             local obj = Net.get_object_by_id(area_id, objnum)
-            --print(obj.id)
+            
             local sfx = {
                 item_get='/server/assets/ezlibs-assets/sfx/item_get.ogg'
             }
@@ -442,8 +429,10 @@ local remove_object = {
             end
 
             if dialogue.custom_properties["Next 1"] == nil then
+                await(Async.sleep(0.5))
                 return
             else
+                await(Async.sleep(0.5))
                 return dialogue.custom_properties["Next 1"]
             end
             
@@ -451,6 +440,113 @@ local remove_object = {
     end  
 }
 eznpcs.add_event(remove_object)
+
+--subnet_1 junk quest encounter, cleanup, and save
+local clean_junk = {
+    name = "clean_junk",
+    action = function(npc, player_id, dialogue, relay_object)
+        return async(function()
+            local player_mugshot = Net.get_player_mugshot(player_id)
+            local area_id = Net.get_player_area(player_id)
+            local object_id = Net.get_object_by_id(area_id, relay_object.id)                      
+             
+            --print(tostring(relay_object.id))           
+            
+            await(Async.message_player(player_id, "Cleaning up this junk...", player_mugshot.texture_path, player_mugshot.animation_path))
+            local stats = await(ezencounters.begin_encounter(player_id, junkfight, nil))
+            local flags = _encounter_result_flags(stats)
+            
+            if flags.ran or flags.lost then
+                return
+            else
+                ezmemory.hide_object_from_player(player_id, area_id, relay_object.id)
+                if dialogue.custom_properties["Next 1"] == nil then
+                    return
+                else
+                    return dialogue.custom_properties["Next 1"]
+                end
+            end
+            
+        end)
+    end
+}
+eznpcs.add_event(clean_junk)
+
+local subnet_1_boss = {
+    name = "SubNet1 Boss",
+    action = function(npc, player_id, dialogue, relay_object)
+        return async(function()           
+            
+            local stats = await(ezencounters.begin_encounter(player_id, subnet_1_boss_fight, nil))
+            local flags = _encounter_result_flags(stats)
+            
+        end)
+    end
+}
+eznpcs.add_event(subnet_1_boss)
+
+local bass_boss = {
+    name = "Bass Boss",
+    action = function(npc, player_id, dialogue, relay_object)
+        return async(function()           
+            
+            local stats = await(ezencounters.begin_encounter(player_id, bass, nil))
+            local flags = _encounter_result_flags(stats)
+            
+        end)
+    end
+}
+eznpcs.add_event(bass_boss)
+
+local circusman_rematch = {
+    name = "Circusman Boss Rematch",
+    action = function(npc, player_id, dialogue, relay_object)
+        return async(function()           
+            
+            local stats = await(ezencounters.begin_encounter(player_id, circusman_rematch, nil))
+            local flags = _encounter_result_flags(stats)
+            
+        end)
+    end
+}
+eznpcs.add_event(circusman_rematch)
+
+--box of viruses name is a hold over from an older idea
+local free_prog = {
+name = "free_prog",
+    action = function(npc, player_id, dialogue, relay_object)
+        return async(function()
+            local player_mugshot = Net.get_player_mugshot(player_id)
+            local area_id = Net.get_player_area(player_id)
+            local waiting = true                      
+             
+            --print(tostring(relay_object.id))           
+            
+            await(Async.message_player(player_id, "Oh no this cube is full of viruses!", player_mugshot.texture_path, player_mugshot.animation_path))
+            local stats = await(ezencounters.begin_encounter(player_id, progfight, nil))
+            local flags = _encounter_result_flags(stats)
+            if flags.ran or flags.lost then
+                return
+            else
+                Net:on("battle_exit", function(event)  
+                    if ezmemory.object_is_hidden_from_player(player_id, area_id, relay_object.id) == false then               
+                        --print("Prog battle over.")
+                        waiting = false
+                    
+                    end
+                end)
+                while waiting == true do
+                    await(Async.sleep(0.5))
+                    --print("Waiting")
+                end
+                return dialogue.custom_properties["Next 1"]
+            end           
+        end)
+    end
+}
+eznpcs.add_event(free_prog)
+
+
 
 --Play warp animation on relay_object then hide it from that player
 local warp_npc = {
@@ -609,7 +705,7 @@ local virus_traders = {
 
                 while ezmemory.object_is_hidden_from_player(player_id, area_id, 10) == false do
                     --print("Waiting for crate to be gone")
-                    await(Async.sleep(1))
+                    await(Async.sleep(0.5))
                 end
                 await(Async.message_player(player_id, "Looks like he got away...", player_mugshot.texture_path, player_mugshot.animation_path))
                 await(Async.message_player(player_id, "Huh? The goods! They're all gone... where did...", "/server/assets/ezlibs-assets/eznpcs/mug/punk-navi-exe6_navy.png", "/server/assets/ezlibs-assets/eznpcs/mug/mug.animation"))
@@ -648,12 +744,155 @@ local virus_traders = {
 }
 eznpcs.add_event(virus_traders)
 
+local virus_traders_2 = {
+    name = "virus traders 2",
+    action = function(npc, player_id, dialogue, relay_object)
+
+        return async(function()
+            --local variables
+            local area_id = Net.get_player_area(player_id)
+            local color = {r=144,g=80,b=240,a=255}
+            local color2 = {r=144,g=80,b=240,a=0}
+            local marker = Net.get_object_by_id(area_id,84)
+            local player_mugshot = Net.get_player_mugshot(player_id)
+            local texture = "/server/assets/ezlibs-assets/ezwarps/logout.png"
+            local animation = "/server/assets/ezlibs-assets/ezwarps/logout.animation"
+            local state = "JACK_OUT"
+            local sound = '/server/assets/ezlibs-assets/ezwarps/log_out.ogg'
+            local offsetx = 0.2
+            local offsety = 0.2
+            local warp_in_effect_id = "warp_in_effect_"..npc.bot_id
+            local circusmanpng = "/server/assets/ezlibs-assets/eznpcs/sheet/circusman.png"
+            local circusmananimation = "/server/assets/ezlibs-assets/eznpcs/sheet/circusman.animation"
+            --preload assets
+            
+            Net.provide_asset(area_id, "/server/assets/ezlibs-assets/ezwarps/logout.png")
+            Net.provide_asset(area_id, "/server/assets/ezlibs-assets/ezwarps/logout.animation")
+            Net.provide_asset(area_id,"/server/assets/ezlibs-assets/eznpcs/sheet/circusman.png")
+            Net.provide_asset(area_id,"/server/assets/ezlibs-assets/eznpcs/sheet/circusman.animation")
+
+            --fade out
+            Net.lock_player_input(player_id)
+            Net.fade_player_camera(player_id, color, 0.5)
+            await(Async.sleep(0.6))
+            --move player
+            Net.teleport_player(player_id, false, marker.x, marker.y, marker.z, "Up Right")
+            --fade in
+            Net.fade_player_camera(player_id, color2, 0.5)
+            await(Async.sleep(0.6))
+            --then talk
+            Net.message_player(player_id, "Seems you caught up to me.", "/server/assets/ezlibs-assets/eznpcs/mug/punk-navi-exe6_red.png", "/server/assets/ezlibs-assets/eznpcs/mug/mug.animation")
+            Net.message_player(player_id, "Even cleared the bugfrag barriers.", "/server/assets/ezlibs-assets/eznpcs/mug/punk-navi-exe6_red.png", "/server/assets/ezlibs-assets/eznpcs/mug/mug.animation")
+            await(Async.message_player(player_id, "In that case I'll drop the act, Ahoo, hoo, hoo!! And deal with you myself!", "/server/assets/ezlibs-assets/eznpcs/mug/punk-navi-exe6_red.png", "/server/assets/ezlibs-assets/eznpcs/mug/mug.animation"))                                                           
+            
+            --hide npc and then change them to circusman                                           
+            Net.exclude_actor_for_player(player_id, npc.bot_id)
+            Net.set_bot_avatar(npc.bot_id, circusmanpng, circusmananimation)
+            --created bot for animation
+            Net.create_bot(warp_in_effect_id, {
+                warp_in = false,
+                texture_path = texture,
+                animation_path = animation,
+                area_id = area_id,
+                x = npc.x + offsetx,
+                y = npc.y + offsety,
+                z = npc.z
+            })
+            
+            --play animation and sound
+            Net.animate_bot(warp_in_effect_id, state, false)
+            Net.play_sound_for_player(player_id, sound)
+
+            --sleep so that animation plays before bot is removed                 
+            await(Async.sleep(0.7))
+            --reveal actor and remove bot for animation
+            Net.include_actor_for_player(player_id, npc.bot_id)
+            Net.remove_bot(warp_in_effect_id)           
+            --try to animate bot NOT WORKING                
+            Net.animate_bot(npc.bot_id, "WALK_DL", false)
+                                                                   
+            --end)
+           
+            --continue dialogue
+            await(Async.message_player(player_id, "Ahoo, hoo, hoo!!", "/server/assets/ezlibs-assets/eznpcs/mug/circusman.png", "/server/assets/ezlibs-assets/eznpcs/mug/circusmanmug.animation"))         
+            Net.animate_bot(npc.bot_id, "IDLE_DL", false)
+            --trigger encounter --This breaks the NPC
+            local stats = await(ezencounters.begin_encounter(player_id, circusman, nil))
+                
+            local flags = _encounter_result_flags(stats)
+            
+                
+            if flags.ran or flags.lost then
+                Net.transfer_player(player_id, "Transport", true, 24, 6, 2, "Down")
+                return
+            else       
+                --explode with dialogue
+                Net:on("battle_exit", function(event)
+                
+                    if ezquests.get_player_quest_state(event.player_id, "Virus Traders") ~= 'circusman' then                    
+                        ezexplosions.explode(npc.bot_id, area_id, 5)
+                        Async.sleep(0.5).and_then(function()
+                            Net.exclude_actor_for_player(player_id, npc.bot_id)
+                        end)                     
+                    end
+                end)
+                if dialogue.custom_properties["Next 1"] == nil then
+                    return
+                else
+                    return dialogue.custom_properties["Next 1"]
+                end
+            end            
+        end)       
+    end
+}
+eznpcs.add_event(virus_traders_2)
+
+local virus_crate = {
+    name = "virus crate",
+    action = function(npc, player_id, dialogue, relay_object)
+        local area_id = Net.get_player_area(player_id)
+        local stats = await(ezencounters.begin_encounter(player_id, junkfight, nil))
+        local flags = _encounter_result_flags(stats)
+        local waiting = true
+        return async(function()
+            if flags.ran or flags.lost then
+                Net.transfer_player(player_id, "Transport", true, 24, 6, 2, "Down")
+                return
+            else
+                Net:on("battle_exit", function(event)  
+                    if ezmemory.object_is_hidden_from_player(player_id, area_id, relay_object.id) == false then               
+                        --print("Prog battle over.")
+                        waiting = false
+                        
+                    end
+                end)
+                while waiting == true do
+                    await(Async.sleep(0.5))
+                        --print("Waiting")
+                end
+                --Move to the next dialogue if there is one
+                if dialogue.custom_properties["Next 1"] == nil then
+                    return
+                else
+                    return dialogue.custom_properties["Next 1"]
+                end
+            end
+        end)
+    end
+}
+eznpcs.add_event(virus_crate)
+
 local test = {
     name = "test",
     action = function(npc, player_id, dialogue, relay_object)
 
         return async(function()
-            
+            local color = {r=144,g=80,b=240,a=255}
+            local color2 = {r=144,g=80,b=240,a=0}
+            Net.fade_player_camera(player_id, color, 0.5)
+            await(Async.sleep(0.5))
+            Net.fade_player_camera(player_id, color2, 0.5)
+
             
         end)
     end
