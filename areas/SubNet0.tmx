@@ -7,7 +7,6 @@
   <property name="Forced Base HP" type="int" value="300"/>
   <property name="Foreground Animation" value="/server/assets/fg/PVP.animation"/>
   <property name="Foreground Texture" value="/server/assets/fg/PVP.png"/>
-  <property name="Full Heal" type="bool" value="false"/>
   <property name="Honor HPMem" type="bool" value="true"/>
   <property name="Name" value="CL_SubNet0"/>
   <property name="OctoPVP" type="bool" value="true"/>

@@ -64,7 +64,7 @@ local encounter1 = {
 local encounter2 = {
     name="Encounter2",
     path="/server/assets/ezlibs-assets/ezencounters/ezencounters.zip",
-    weight=10,
+    weight=5,
     enemies={
         {name="Catack",rank=1},
     },
@@ -174,12 +174,89 @@ local encounter4 = {
     results_callback = give_result_awards --function (player_id,encounter_info,stats)
 }
 
+local encounter5 = {
+    name="Encounter5",
+    path="/server/assets/ezlibs-assets/ezencounters/ezencounters.zip",
+    weight=10,
+    enemies={
+        {name="Bunny",rank=1},
+        {name="Quaker",rank=1},
+    },
+    obstacles={
+    },
+    positions={
+        {0,0,0,0,2,0},
+        {0,0,0,1,0,0},
+        {0,0,0,0,0,1},
+    },
+    obstacle_positions={
+        {0,0,0,0,0,0},
+        {0,0,0,0,0,0},
+        {0,0,0,0,0,0},
+    },
+    player_positions={
+        {0,0,0,0,0,0},
+        {0,1,0,0,0,0},
+        {0,0,0,0,0,0},
+    },
+    tiles={
+        {18,18,18,18,18,18},
+        {18,18,18,18,18,18},
+        {18,18,18,18,18,18},
+    },
+    teams={
+        {2,2,2,1,1,1},
+        {2,2,2,1,1,1},
+        {2,2,2,1,1,1},
+    },
+    res_callback = give_result_awards
+}
+
+local encounter6 = {
+    name="Encounter6",
+    path="/server/assets/ezlibs-assets/ezencounters/ezencounters.zip",
+    weight=10,
+    enemies={
+        {name="KillerEye",rank=1},
+        {name="Quaker",rank=1},
+    },
+    obstacles={
+    },
+    positions={
+        {0,0,0,1,0,0},
+        {0,0,0,0,2,0},
+        {0,0,0,2,0,0},
+    },
+    obstacle_positions={
+        {0,0,0,0,0,0},
+        {0,0,0,0,0,0},
+        {0,0,0,0,0,0},
+    },
+    player_positions={
+        {0,0,0,0,0,0},
+        {0,1,0,0,0,0},
+        {0,0,0,0,0,0},
+    },
+    tiles={
+        {18,18,18,18,18,18},
+        {18,1,18,18,1,18},
+        {18,18,18,18,18,18},
+    },
+    teams={
+        {2,2,2,1,1,1},
+        {2,2,2,1,1,1},
+        {2,2,2,1,1,1},
+    },
+    res_callback = give_result_awards
+}
+
+
 local circusman = {
     name="circusman_boss",
     path="/server/assets/ezlibs-assets/ezencounters/ezencounters.zip",
     weight=0,
     enemies={
-        {name="CircusMan",rank=1},
+        {name="CircusMan",rank=2},
     },
     obstacles={
     },
@@ -217,5 +294,5 @@ local circusman = {
 return {
     minimum_steps_before_encounter=50,
     encounter_chance_per_step=0.1,
-    encounters={encounter1, encounter2, encounter3, encounter4, circusman}
+    encounters={encounter1, encounter2, encounter3, encounter4, encounter5, encounter6, circusman}
 }

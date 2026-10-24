@@ -5,7 +5,6 @@
   <property name="Background Animation" value="/server/assets/bg/07d-skyarea.animation"/>
   <property name="Background Texture" value="/server/assets/bg/07d-skyarea.png"/>
   <property name="Forced Base HP" type="int" value="300"/>
-  <property name="Full Heal" type="bool" value="true"/>
   <property name="Honor HPMem" type="bool" value="true"/>
   <property name="Name" value="Transprt_1"/>
   <property name="OctoPVP" type="bool" value="false"/>

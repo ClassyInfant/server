@@ -352,7 +352,131 @@ local virustraders = {
         {2,2,2,1,1,1},
     },
     music={
-        path="bn5_boss.mid"
+        path="bn6_battle_xg.mid"
+    },
+    results_callback = give_result_awards
+}
+
+local virustraders2 = {
+    name="virustraders2",
+    path="/server/assets/ezlibs-assets/ezencounters/ezencounters.zip",
+    weight=10,
+    enemies={
+        {name="Scuttle",rank=1},
+        {name="Mettaur",rank=2},
+    },
+    obstacles={
+    },
+    positions={
+        {0,0,0,0,0,2},
+        {0,0,0,0,1,0},
+        {0,0,0,0,0,0},
+    },
+    obstacle_positions={
+        {0,0,0,0,0,0},
+        {0,0,0,0,0,0},
+        {0,0,0,0,0,0},
+    },
+    player_positions={
+        {0,0,0,0,0,0},
+        {0,1,0,0,0,0},
+        {0,0,0,0,0,0},
+    },
+    tiles={
+        {1,1,1,1,1,1},
+        {1,1,1,1,1,1},
+        {1,1,1,1,1,1},
+    },
+    teams={
+        {2,2,2,1,1,1},
+        {2,2,2,1,1,1},
+        {2,2,2,1,1,1},
+    },
+    music={
+        path="bn6_battle_xg.mid"
+    },
+    results_callback = give_result_awards
+}
+
+local virustraders3 = {
+    name="virustraders",
+    path="/server/assets/ezlibs-assets/ezencounters/ezencounters.zip",
+    weight=10,
+    enemies={
+        {name="Swordy",rank=2},
+        {name="Mettaur",rank=2},
+        {name="Spikey",rank=1}
+    },
+    obstacles={
+    },
+    positions={
+        {0,0,0,0,0,2},
+        {0,0,0,0,1,0},
+        {0,0,0,2,0,3},
+    },
+    obstacle_positions={
+        {0,0,0,0,0,0},
+        {0,0,0,0,0,0},
+        {0,0,0,0,0,0},
+    },
+    player_positions={
+        {0,0,0,0,0,0},
+        {0,1,0,0,0,0},
+        {0,0,0,0,0,0},
+    },
+    tiles={
+        {1,1,1,1,1,1},
+        {1,1,1,1,1,1},
+        {1,1,1,1,1,1},
+    },
+    teams={
+        {2,2,2,1,1,1},
+        {2,2,2,1,1,1},
+        {2,2,2,1,1,1},
+    },
+    music={
+        path="bn6_battle_xg.mid"
+    },
+    results_callback = give_result_awards
+}
+
+local virustraders4 = {
+    name="virustraders",
+    path="/server/assets/ezlibs-assets/ezencounters/ezencounters.zip",
+    weight=10,
+    enemies={
+        {name="Scuttle",rank=1},
+        {name="Spikey",rank=1}
+    },
+    obstacles={
+    },
+    positions={
+        {0,0,0,0,0,0},
+        {0,0,0,0,1,0},
+        {0,0,0,2,0,0},
+    },
+    obstacle_positions={
+        {0,0,0,0,0,0},
+        {0,0,0,0,0,0},
+        {0,0,0,0,0,0},
+    },
+    player_positions={
+        {0,0,0,0,0,0},
+        {0,1,0,0,0,0},
+        {0,0,0,0,0,0},
+    },
+    tiles={
+        {1,1,1,1,1,1},
+        {1,1,1,1,1,1},
+        {1,1,1,1,1,1},
+    },
+    teams={
+        {2,2,2,1,1,1},
+        {2,2,2,1,1,1},
+        {2,2,2,1,1,1},
+    },
+    music={
+        path="bn6_battle_xg.mid"
     },
     results_callback = give_result_awards
 }
@@ -867,7 +991,12 @@ local virus_crate = {
         
         return async(function()
             local area_id = Net.get_player_area(player_id)
-            local stats = await(ezencounters.begin_encounter(player_id, junkfight, nil))
+            local virus = virustraders
+            --pick at random
+
+
+
+            local stats = await(ezencounters.begin_encounter(player_id, virus, nil))
             local flags = _encounter_result_flags(stats)
             local waiting = true
             if flags.ran or flags.lost then
@@ -902,23 +1031,30 @@ local test = {
     action = function(npc, player_id, dialogue, relay_object)
 
         return async(function()
-            local area_id = Net.get_player_area(player_id)
+
+            math.randomseed(os.time())
+            local rand = math.random(1,4)
+            
+
+            local function rand_encounter()
+                if rand == 1 then
+                    --print(rand)
+                    return virustraders
+                elseif rand == 2 then
+                    --print(rand)
+                    return virustraders2
+                elseif rand == 3 then
+                    --print(rand)
+                    return virustraders3
+                elseif rand == 4 then
+                    --print(rand)
+                    return virustraders4
+                else
+                    return virustraders3
+                end
+            end
           
-            local colorex = {r=255,g=216,b=44,a=200}
-            local colorex2 = {r=255,g=216,b=44,a=0}
-            local boom = ezexplosions.explode(npc.bot_id, area_id, nil)
-            Net.message_player(player_id, "Ahoo, hoo, hoo!!", "/server/assets/ezlibs-assets/eznpcs/mug/circusman.png", "/server/assets/ezlibs-assets/eznpcs/mug/circusmanmug.animation")         
-            await(Async.message_player(player_id, "This was only one store house of the viruses I collected... this isn't over...", "/server/assets/ezlibs-assets/eznpcs/mug/circusman.png", "/server/assets/ezlibs-assets/eznpcs/mug/circusmanmug.animation"))                 
-            --fade out with red and increase explosions
-            Net.fade_player_camera(player_id, colorex, 0.5)
-            ezexplosions.explode(npc.bot_id, area_id, 8)
-            ezexplosions.explode(npc.bot_id, area_id, 6)
-            ezexplosions.explode(npc.bot_id, area_id, 4)
-            await(Async.sleep(0.5))
-            Net.fade_player_camera(player_id, colorex2, 0.2)
-            --remove npc and the infinate booms set quest flag
-            Net.exclude_actor_for_player(player_id, npc.bot_id)
-            boom.stopped = true
+            local stats = await(ezencounters.begin_encounter(player_id, rand_encounter(), nil))
 
             return          
         end)
