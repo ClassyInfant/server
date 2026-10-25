@@ -399,7 +399,7 @@ local virustraders2 = {
 }
 
 local virustraders3 = {
-    name="virustraders",
+    name="virustraders3",
     path="/server/assets/ezlibs-assets/ezencounters/ezencounters.zip",
     weight=10,
     enemies={
@@ -441,7 +441,7 @@ local virustraders3 = {
 }
 
 local virustraders4 = {
-    name="virustraders",
+    name="virustraders4",
     path="/server/assets/ezlibs-assets/ezencounters/ezencounters.zip",
     weight=10,
     enemies={
