@@ -9,6 +9,7 @@
   <property name="Forced Base HP" type="int" value="300"/>
   <property name="Honor HPMem" type="bool" value="true"/>
   <property name="Name" value="SeaChatRm"/>
+  <property name="OctoPVP" type="bool" value="false"/>
   <property name="Song" value="/server/assets/exe6-seasidetown.ogg"/>
  </properties>
  <tileset firstgid="1" source="../assets/central_platform.tsx"/>

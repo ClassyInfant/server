@@ -159,3 +159,9 @@ frame duration="0.067" x="33" y="0" w="19" h="36" originx="11" originy="33" flip
 frame duration="0.067" x="52" y="0" w="18" h="36" originx="8" originy="33" flipx="1"
 frame duration="0.067" x="94" y="0" w="24" h="35" originx="11" originy="32" flipx="1"
 frame duration="0.067" x="0" y="0" w="18" h="36" originx="10" originy="33" flipx="1"
+
+animation state="SHOOT_DR"
+frame duration="0.1" x="165" y="172" w="26" h="31" originx="12" originy="31"
+
+animation state="SHOOT_DL"
+frame duration="0.1" x="165" y="172" w="26" h="31" originx="12" originy="31" flipx="1"

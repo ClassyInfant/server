@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.10" tiledversion="1.12.2" orientation="isometric" renderorder="right-down" width="15" height="15" tilewidth="64" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="3">
+ <tileset firstgid="1" source="../assets/rainbow_floor.tsx"/>
+ <tileset firstgid="17" source="../assets/cloud.tsx"/>
+ <tileset firstgid="29" source="../assets/hp_warp_blue.tsx"/>
+ <layer id="1" name="Ground 1" width="15" height="15">
+  <data encoding="csv">
+2,5,2,0,0,0,0,0,0,0,0,0,1,5,1,
+5,2,5,2,5,2,5,2,5,1,5,1,5,1,5,
+2,5,2,0,0,0,0,5,0,0,0,0,1,5,1,
+0,2,0,0,0,0,0,2,0,0,0,0,0,1,0,
+0,4,0,0,17,0,0,5,0,0,17,0,0,5,0,
+0,2,0,0,0,0,0,2,0,0,0,0,0,1,0,
+0,4,0,0,0,0,13,12,13,0,0,0,0,5,0,
+0,2,8,2,8,2,12,13,12,1,5,1,5,1,0,
+0,8,0,0,0,0,13,12,13,0,0,0,0,8,0,
+0,2,0,0,0,0,0,1,0,0,0,0,0,1,0,
+0,8,0,0,17,0,0,8,0,0,17,0,0,8,0,
+0,2,0,0,0,0,0,1,0,0,0,0,0,1,0,
+2,8,2,0,0,0,0,8,0,0,0,0,1,8,1,
+8,2,8,2,8,2,8,1,8,1,8,1,8,1,8,
+2,8,2,0,0,0,0,0,0,0,0,0,1,8,1
+</data>
+ </layer>
+ <objectgroup id="2" name="Ground 1">
+  <object id="1" gid="30" x="16" y="16" width="114" height="64"/>
+  <object id="2" name="GamesProg" type="NPC" x="200" y="200">
+   <properties>
+    <property name="Asset Name" value="prog"/>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Direction" value="Down Left"/>
+    <property name="Text 1" value="[WIP]"/>
+   </properties>
+   <point/>
+  </object>
+ </objectgroup>
+</map>

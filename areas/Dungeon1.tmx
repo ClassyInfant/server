@@ -10,6 +10,7 @@
   <property name="Mystery Data Maximum" type="int" value="5"/>
   <property name="Mystery Data Minimum" type="int" value="2"/>
   <property name="Name" value="CL_SubNet1"/>
+  <property name="OctoPVP" type="bool" value="false"/>
   <property name="Song" value="/server/assets/exepon-internet.ogg"/>
  </properties>
  <tileset firstgid="1" source="../assets/central_platform.tsx"/>

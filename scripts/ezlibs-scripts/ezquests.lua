@@ -92,12 +92,12 @@ end
 
 --testing quest
 --handle_event_async must return a promise
-local quest_get_punched = {
-    name = "Get Punched",
+local quest_beat_bass = {
+    name = "Beat Bass",
     handle_event_async = function (self,player_id,event_value)
         return async(function ()
-            local accpeted = ezquests.get_player_quest_flag(player_id,self.name,'accepted')
-            if accpeted or event_value == "accepted" then
+            local accpeted = ezquests.get_player_quest_flag(player_id,self.name,'beat')
+            if accpeted or event_value == "beat" then
                 --set the flag if the quest is accepted, or we are accpeting it
                 ezquests.set_player_quest_flag(player_id,self.name,event_value,true)
             end
@@ -107,16 +107,13 @@ local quest_get_punched = {
         end)
     end,
     determine_state = function (self,player_id)
-        if ezquests.get_player_quest_flag(player_id,self.name,'punched') then
-            return "punched"
-        end
-        if ezquests.get_player_quest_flag(player_id,self.name,'accepted') then
-            return "accepted"
+        if ezquests.get_player_quest_flag(player_id,self.name,'beat') then
+            return "beat"
         end
         return "unaccepted"
     end
 }
-ezquests.add_quest(quest_get_punched)
+ezquests.add_quest(quest_beat_bass)
 
 
 local quest_clean_junk = {
@@ -187,5 +184,35 @@ local quest_stuck_prog = {
     end
 }
 ezquests.add_quest(quest_stuck_prog)
+
+local quest_virus_trader = {
+    name = "Virus Traders",
+    handle_event_async = function (self,player_id,event_value)
+        return async(function ()
+            local accpeted = ezquests.get_player_quest_flag(player_id,self.name,'beat')
+            local circusman = ezquests.get_player_quest_flag(player_id,self.name,'circusman')
+            if accpeted or event_value == "beat" then
+                --set the flag if the quest is accepted, or we are accpeting it
+                ezquests.set_player_quest_flag(player_id,self.name,event_value,true)
+            end
+            if circusman or event_value == 'circusman' then
+                ezquests.set_player_quest_flag(player_id,self.name,event_value,true)
+            end
+            if event_value == 'reset' then
+                ezquests.clear_player_quest_flags(player_id,self.name)
+            end
+        end)
+    end,
+    determine_state = function (self,player_id)
+        if ezquests.get_player_quest_flag(player_id,self.name,'circusman') then
+            return "circusman"
+        end
+        if ezquests.get_player_quest_flag(player_id,self.name,'beat') then
+            return "beat"
+        end
+        return "unaccepted"
+    end
+}
+ezquests.add_quest(quest_virus_trader)
 
 return ezquests

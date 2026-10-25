@@ -1,0 +1,6 @@
+imagePath="SafeZone.png"
+
+animation state="BG"
+frame duration="1" x="0" y="0" w="240" h="160" originx="0" originy="0" flipx="0" flipy="0"
+
+

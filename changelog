@@ -1,0 +1,27 @@
+New Areas:
+Transprt_2
+Transprt_3
+CoffeeComp
+SwitchComp
+KtchnComp
+
+New Quest:
+A new multipart story quest
+
+Mechanics:
+Basic PVP enabled in some areas
+Encounter and PVP indicators
+	In the top left you will now see a GMNavi icon for areas with no encounters
+	For areas where PVP is open you will see a crossed swords icon
+Boss rematch system
+	This is in the hidden area ;)
+
+Misc:
+Updates to NPC dialogues
+Updates to quest scripts (for quests that hide objects map data has been modified to retain progress)
+General bugfixes
+Expanded CL_SubNet2 for future content
+
+Hints:
+There's now an NPC that hints on how to access the hidden area
+Add some elec type chips to your folder
