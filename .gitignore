@@ -3,3 +3,6 @@
 memory/*
 !memory/.gitkeep
 ezlibs-config.lua
+areas/test.tmx
+areas/AdminRm.tmx
+areas/AdminRm.tmx
