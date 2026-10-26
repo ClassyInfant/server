@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.12.2" orientation="isometric" renderorder="right-down" width="20" height="20" tilewidth="64" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="67">
+<map version="1.10" tiledversion="1.12.2" orientation="isometric" renderorder="right-down" width="20" height="20" tilewidth="64" tileheight="32" infinite="0" nextlayerid="3" nextobjectid="68">
  <properties>
   <property name="Background" value="custom"/>
   <property name="Background Animation" value="/server/assets/bg/CoffeeCompBG.animation"/>
@@ -49,7 +49,7 @@
   <object id="1" gid="257" x="208" y="592" width="40" height="53"/>
   <object id="4" name="Dungeon1" type="Radius Warp" gid="291" x="224" y="480" width="61" height="32">
    <properties>
-    <property name="Activation Radius" type="float" value="1.5"/>
+    <property name="Activation Radius" type="float" value="1.3"/>
     <property name="Target Area" value="Dungeon1"/>
     <property name="Target Object" type="object" value="7"/>
     <property name="Warp Out" type="bool" value="true"/>
@@ -76,6 +76,14 @@
     <property name="Activation Radius" type="float" value="1.5"/>
     <property name="Target Area" value="Transport3"/>
     <property name="Target Object" type="object" value="59"/>
+    <property name="Warp Out" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="67" name="Transport3" type="Radius Warp" gid="291" x="64" y="352" width="61" height="32">
+   <properties>
+    <property name="Activation Radius" type="float" value="1.5"/>
+    <property name="Target Area" value="test"/>
+    <property name="Target Object" type="object" value="1"/>
     <property name="Warp Out" type="bool" value="true"/>
    </properties>
   </object>
@@ -113,7 +121,6 @@
   </object>
   <object id="12" gid="290" x="64" y="224" width="61" height="32"/>
   <object id="13" gid="290" x="64" y="288" width="61" height="32"/>
-  <object id="14" gid="290" x="64" y="352" width="61" height="32"/>
   <object id="15" gid="290" x="64" y="416" width="61" height="32"/>
   <object id="16" gid="290" x="64" y="480" width="61" height="32"/>
   <object id="19" gid="290" x="512" y="224" width="61" height="32"/>

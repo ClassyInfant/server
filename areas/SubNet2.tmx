@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.12.2" orientation="isometric" renderorder="right-down" width="25" height="25" tilewidth="64" tileheight="32" infinite="0" nextlayerid="7" nextobjectid="53">
+<map version="1.10" tiledversion="1.12.2" orientation="isometric" renderorder="right-down" width="25" height="25" tilewidth="64" tileheight="32" infinite="0" nextlayerid="9" nextobjectid="72">
  <properties>
   <property name="Background" value="custom"/>
   <property name="Background Animation" value="/server/assets/bg/07a-centralarea.animation"/>
@@ -27,6 +27,8 @@
  <tileset firstgid="292" source="../assets/Custom_Central_Tiles.tsx"/>
  <tileset firstgid="300" source="../assets/coffee.tsx"/>
  <tileset firstgid="304" source="../../../../../../../home/cody/Pictures/WIP/BattleNetworkSprites/CentralPlatformFlatRaised.tsx"/>
+ <tileset firstgid="408" source="../assets/CentralPlatformFlatRaised.tsx"/>
+ <tileset firstgid="512" source="../assets/DungeonServerWarpPads.tsx"/>
  <layer id="1" name="Ground 1" width="25" height="25">
   <data encoding="csv">
 0,0,0,0,0,0,0,0,0,0,258,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
@@ -41,18 +43,18 @@
 0,0,0,0,0,0,0,0,0,0,59,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,68,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,68,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,48,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,18,19,19,19,29,0,0,0,18,19,29,0,0,0,0,0,0,
-0,0,0,0,0,289,67,47,17,28,28,28,39,49,45,47,17,28,39,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,17,28,28,28,39,0,0,0,27,37,38,0,0,0,0,0,0,
-0,0,0,0,0,286,67,47,17,28,28,28,39,49,20,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,17,28,28,28,39,0,0,0,18,19,29,0,0,0,0,0,0,
-0,0,0,0,0,283,67,47,17,28,28,28,39,49,45,47,17,28,39,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,48,0,0,0,0,0,0,440,434,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,18,19,19,19,29,0,0,0,18,2147484098,449,0,0,0,0,0,0,
+0,0,0,0,0,289,67,47,17,28,28,28,39,49,45,47,17,441,2147484103,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,17,28,440,446,2147484105,0,0,0,27,37,38,0,0,0,0,0,0,
+0,0,0,0,0,286,67,47,17,28,2147484094,436,2147484102,49,20,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,17,28,2147484098,2147484086,2147484104,0,0,0,18,19,29,0,0,0,0,0,0,
+0,0,0,0,0,283,67,47,17,28,441,435,2147484103,49,45,47,17,28,39,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,27,37,37,37,38,0,0,0,27,37,38,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,59,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,188,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,178,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,138,139,139,139,149,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,289,187,177,137,148,148,148,159,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,147,157,157,157,158,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
@@ -114,6 +116,15 @@
    </properties>
    <point/>
   </object>
+  <object id="59" name="Gamer_Navi" type="NPC" x="528" y="592">
+   <properties>
+    <property name="Asset Name" value="normal-navi-bn4_red"/>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Direction" value="Down Right"/>
+    <property name="Text 1" value="No luck buddy. This one is offline."/>
+   </properties>
+   <point/>
+  </object>
   <object id="10" type="Dialogue" x="261" y="57">
    <properties>
     <property name="Dialogue Type" value="first"/>
@@ -127,6 +138,25 @@
     <property name="Dialogue Type" value="first"/>
     <property name="Direction" value="Down Left"/>
     <property name="Text 1" value="Your safety is our priotity."/>
+   </properties>
+   <point/>
+  </object>
+  <object id="60" name="GMNavi" type="NPC" x="296.5" y="201.5">
+   <properties>
+    <property name="Asset Name" value="GMNavi"/>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Direction" value="Down Left"/>
+    <property name="Text 1" value="Your safety is our priotity."/>
+   </properties>
+   <point/>
+  </object>
+  <object id="61" name="CoffeeNavi" type="NPC" x="578" y="408">
+   <properties>
+    <property name="Asset Name" value="male-navi-exe6_teal"/>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Direction" value="Down Left"/>
+    <property name="Next 1" type="object" value="62"/>
+    <property name="Text 1" value="Welcome."/>
    </properties>
    <point/>
   </object>
@@ -225,6 +255,71 @@
   <object id="25" gid="281" x="480" y="160" width="64" height="64"/>
   <object id="31" gid="261" x="-40" y="200" width="96" height="64"/>
   <object id="34" gid="282" x="559.5" y="268.5" width="71" height="46"/>
+  <object id="53" gid="300" x="560" y="416" width="33" height="54"/>
+  <object id="54" gid="266" x="563.5" y="425" width="32" height="32">
+   <properties>
+    <property name="Interact Relay" type="object" value="61"/>
+   </properties>
+  </object>
+  <object id="55" gid="267" x="580" y="420.5" width="32" height="32">
+   <properties>
+    <property name="Interact Relay" type="object" value="61"/>
+   </properties>
+  </object>
+  <object id="58" gid="533" x="544" y="576" width="57" height="33"/>
+  <object id="62" name="Ask" type="Dialogue" x="576" y="352">
+   <properties>
+    <property name="Dialogue Type" value="question"/>
+    <property name="Next 1" type="object" value="66"/>
+    <property name="Next 2" type="object" value="67"/>
+    <property name="Text 1" value="Care for a cup of cyber coffee? Only 100$"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="66" name="Check" type="Dialogue" x="576" y="344">
+   <properties>
+    <property name="Asset Name" value="Blank"/>
+    <property name="Dialogue Type" value="itemcheck"/>
+    <property name="Item 1" type="object" value="70"/>
+    <property name="Next 1" type="object" value="68"/>
+    <property name="Next 2" type="object" value="69"/>
+    <property name="Take Item" type="bool" value="true"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="67" name="No" type="Dialogue" x="584" y="352">
+   <point/>
+  </object>
+  <object id="68" type="Dialogue" x="576" y="336">
+   <properties>
+    <property name="Dialogue Type" value="none"/>
+    <property name="Event Name" value="heal"/>
+    <property name="Next 1" type="object" value="71"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="71" type="Dialogue" x="576" y="328">
+   <properties>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Mugshot" value="player"/>
+    <property name="Text 1" value="How delightful!"/>
+   </properties>
+   <point/>
+  </object>
+  <object id="69" name="Broke" type="Dialogue" x="584" y="344">
+   <properties>
+    <property name="Dialogue Type" value="first"/>
+    <property name="Text 1" value="Sorry, you don't have enough monies..."/>
+   </properties>
+   <point/>
+  </object>
+  <object id="70" name="Coffee" type="Item" x="568" y="344">
+   <properties>
+    <property name="Amount" type="int" value="100"/>
+    <property name="Type" value="money"/>
+   </properties>
+   <point/>
+  </object>
  </objectgroup>
  <layer id="5" name="Ground 2" width="25" height="25" offsetx="0" offsety="-16">
   <data encoding="csv">
@@ -251,7 +346,7 @@
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
-0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,290,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
 0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 </data>
  </layer>
@@ -291,6 +386,42 @@
    </properties>
   </object>
   <object id="50" gid="2147483917" x="152" y="592" width="64" height="64">
+   <properties>
+    <property name="Interact Relay" type="object" value="23"/>
+   </properties>
+  </object>
+ </objectgroup>
+ <layer id="7" name="Ground 3" width="25" height="25" offsetx="0" offsety="-32">
+  <data encoding="csv">
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,187,291,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,
+0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
+</data>
+ </layer>
+ <objectgroup id="8" name="Ground 3" offsetx="0" offsety="-32">
+  <object id="56" gid="2147483917" x="115" y="753" width="64" height="64">
    <properties>
     <property name="Interact Relay" type="object" value="23"/>
    </properties>
