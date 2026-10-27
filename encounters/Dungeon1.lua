@@ -15,8 +15,9 @@ local give_result_awards = function (player_id,encounter_info,stats)
     -- set the player health to whatever they finished the battle with
     Net.set_player_health(player_id,stats.health)
     if stats.health == 0 then
-         Net.transfer_player(player_id, "default", true, 15, 15, 0, "Down")
-         return
+        Net.set_player_health(player_id,1)
+        Net.transfer_player(player_id, "default", true, 15, 15, 0, "Down")
+        return
     end
     if stats.ran then
         return -- no rewards for wimps

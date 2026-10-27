@@ -21,6 +21,7 @@ local give_result_awards = function (player_id,encounter_info,stats)
     -- set the player health to whatever they finished the battle with
     Net.set_player_health(player_id,stats.health)
     if stats.health == 0 then
+        Net.set_player_health(player_id,1)
         local area_id = Net.get_player_area(player_id)
         if area_id == "default" then
             Net.transfer_player(player_id, "default", true, 14, 15, 0, "Down")
@@ -951,7 +952,7 @@ local virus_traders_2 = {
             
                 
             if flags.ran or flags.lost then
-                Net.transfer_player(player_id, "Transport", true, 24, 6, 2, "Down")
+                --Net.transfer_player(player_id, "Transport", true, 24, 6, 2, "Down")
                 return
             else       
                 --explode with dialogue
@@ -993,14 +994,33 @@ local virus_crate = {
             local area_id = Net.get_player_area(player_id)
             local virus = virustraders
             --pick at random
+            math.randomseed(os.time())
+            local rand = math.random(1,4)
+            
 
-
-
-            local stats = await(ezencounters.begin_encounter(player_id, virus, nil))
+            local function rand_encounter()
+                if rand == 1 then
+                    --print(rand)
+                    return virustraders
+                elseif rand == 2 then
+                    --print(rand)
+                    return virustraders2
+                elseif rand == 3 then
+                    --print(rand)
+                    return virustraders3
+                elseif rand == 4 then
+                    --print(rand)
+                    return virustraders4
+                else
+                    return virustraders3
+                end
+            end
+          
+            local stats = await(ezencounters.begin_encounter(player_id, rand_encounter(), nil))
             local flags = _encounter_result_flags(stats)
             local waiting = true
             if flags.ran or flags.lost then
-                Net.transfer_player(player_id, "Transport", true, 24, 6, 2, "Down")
+                --Net.transfer_player(player_id, "Transport", true, 24, 6, 2, "Down")
                 return
             else
                 Net:on("battle_exit", function(event)  
