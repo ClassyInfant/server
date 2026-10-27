@@ -321,7 +321,7 @@
     <property name="Next 1" type="object" value="85"/>
     <property name="Text 1" value="I fix up navi that get themselves into trouble."/>
     <property name="Text 2" value="Try finding more HP Mems."/>
-    <property name="Text 3" value="Be careful there's no much security here."/>
+    <property name="Text 3" value="Be careful there's not much security here."/>
    </properties>
    <point/>
   </object>
