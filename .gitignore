@@ -6,3 +6,5 @@ ezlibs-config.lua
 areas/test.tmx
 areas/AdminRm.tmx
 
+scripts/octo-ranking/player_id_ranks.json
+scripts/octo-ranking/player_id_ranks.txt
