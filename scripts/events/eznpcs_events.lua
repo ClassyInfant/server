@@ -994,10 +994,29 @@ local virus_crate = {
             local area_id = Net.get_player_area(player_id)
             local virus = virustraders
             --pick at random
+            math.randomseed(os.time())
+            local rand = math.random(1,4)
+            
 
-
-
-            local stats = await(ezencounters.begin_encounter(player_id, virus, nil))
+            local function rand_encounter()
+                if rand == 1 then
+                    --print(rand)
+                    return virustraders
+                elseif rand == 2 then
+                    --print(rand)
+                    return virustraders2
+                elseif rand == 3 then
+                    --print(rand)
+                    return virustraders3
+                elseif rand == 4 then
+                    --print(rand)
+                    return virustraders4
+                else
+                    return virustraders3
+                end
+            end
+          
+            local stats = await(ezencounters.begin_encounter(player_id, rand_encounter(), nil))
             local flags = _encounter_result_flags(stats)
             local waiting = true
             if flags.ran or flags.lost then
