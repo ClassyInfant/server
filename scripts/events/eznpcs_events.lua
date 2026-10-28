@@ -654,7 +654,7 @@ name = "free_prog",
                 return
             else
                 Net:on("battle_exit", function(event)  
-                    if ezmemory.object_is_hidden_from_player(player_id, area_id, relay_object.id) == false then               
+                    if ezmemory.object_is_hidden_from_player(event.player_id, area_id, relay_object.id) == false then               
                         --print("Prog battle over.")
                         waiting = false
                     
@@ -817,11 +817,11 @@ local virus_traders = {
                    
                     Net:on("battle_exit", function(event)
         
-                            if ezmemory.object_is_hidden_from_player(player_id, area_id, 10) == false then 
-                                Net.lock_player_input(player_id)                   
+                            if ezmemory.object_is_hidden_from_player(event.player_id, area_id, 10) == false then 
+                                Net.lock_player_input(event.player_id)                   
                                 ezexplosions.explode(10, area_id, 5)
                                 Async.sleep(0.5).and_then(function()
-                                    hide(player_id, area_id, 10)
+                                    hide(event.player_id, area_id, 10)
                                 end)                     
                             end
 
@@ -1023,8 +1023,9 @@ local virus_crate = {
                 --Net.transfer_player(player_id, "Transport", true, 24, 6, 2, "Down")
                 return
             else
+                await(Async.sleep(0.01))
                 Net:on("battle_exit", function(event)  
-                    if ezmemory.object_is_hidden_from_player(player_id, area_id, relay_object.id) == false then               
+                    if ezmemory.object_is_hidden_from_player(event.player_id, area_id, relay_object.id) == false then               
                         --print("Prog battle over.")
                         waiting = false
                         
