@@ -12,6 +12,9 @@ function await(v) return Async.await(v) end
 collection_events = {}
 
 --add events here with the same format as test()
+function halloween(player_id,object_id,area_id)
+
+end
 
 function test(player_id,object_id,area_id)
     print("Success")
