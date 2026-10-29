@@ -5,6 +5,7 @@ memory/*
 ezlibs-config.lua
 areas/test.tmx
 areas/AdminRm.tmx
+areas/events/*
 scripts/octo-ranking/*
 !scripts/octo-ranking/.gitkeep
 
