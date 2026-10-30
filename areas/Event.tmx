@@ -186,7 +186,12 @@
    <point/>
   </object>
   <object id="4" gid="2147484110" x="392" y="144" width="40" height="72"/>
-  <object id="5" gid="2147484113" x="552" y="88" width="32" height="56"/>
+  <object id="5" name="CandyBBS" type="CandyBBS" gid="2147484113" x="552" y="88" width="32" height="56">
+   <properties>
+    <property name="Color" type="color" value="#ffaa00ff"/>
+    <property name="Name" value="Candy_Records"/>
+   </properties>
+  </object>
   <object id="7" type="Radius Item" gid="483" x="656" y="368" width="14" height="43">
    <properties>
     <property name="Dont Notify" type="bool" value="true"/>
@@ -257,11 +262,12 @@
     <property name="Sound 4" value="/server/assets/sfx/Candy4.ogg"/>
    </properties>
   </object>
-  <object id="363" type="Radius Item" gid="483" x="440" y="1240" width="39" height="112">
+  <object id="363" type="Radius Item" gid="483" x="432" y="1272" width="28" height="86">
    <properties>
     <property name="Dont Notify" type="bool" value="true"/>
-    <property name="Event" value="test"/>
+    <property name="Event" value="trickortreat"/>
     <property name="Item" type="object" value="364"/>
+    <property name="Radius" type="float" value="2"/>
     <property name="Sound" value="/server/assets/sfx/Candy1.ogg"/>
    </properties>
   </object>
@@ -3756,7 +3762,7 @@
   <object id="366" name="Finish" x="560" y="128">
    <point/>
   </object>
-  <object id="368" name="Start" type="Radius Warp" x="944" y="336">
+  <object id="368" name="Start" type="Radius Warp" x="520" y="1040">
    <properties>
     <property name="Activation Radius" type="float" value="0.5"/>
     <property name="Arrival Animation" value="arrow_down_right_in"/>

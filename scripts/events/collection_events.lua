@@ -7,13 +7,20 @@ local ezbus = require('scripts/ezlibs-scripts/ezbus')
 local ezexplosions = require('scripts/ezlibs-scripts/ezexplosions')
 local ezquests = require('scripts/ezlibs-scripts/ezquests')
 
+
 function await(v) return Async.await(v) end
 
 collection_events = {}
 
 --add events here with the same format as test()
-function halloween(player_id,object_id,area_id)
+function trickortreat(player_id,object_id,area_id)
+    local treats = ezmemory.count_player_item(player_id, "Candy")
+    print(player_id, ": ", treats)
 
+    local marker = Net.get_object_by_id(area_id,366)
+    local remove_quant = treats
+    ezmemory.remove_player_item(player_id, "Candy", remove_quant)
+    Net.teleport_player(player_id, true, marker.x, marker.y, marker.z, "Up Right")
 end
 
 function test(player_id,object_id,area_id)

@@ -75,16 +75,7 @@ local PackageType = {
   PLAYER = 5,
 }
 
-local EmailIcon = {
-  NOTICE = 0,
-  DM = 1,
-  DM_ATTACHMENT = 2,
-  URGENT = 3,
-  MISSION = 4
-}
-
 return {
-  EmailIcon=EmailIcon,
   ColorMode=ColorMode,
   BattleItem=BattleItem,
   InputState=InputState,

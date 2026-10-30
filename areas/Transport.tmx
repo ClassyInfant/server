@@ -521,7 +521,7 @@
    </properties>
    <point/>
   </object>
-  <object id="83" name="AdminWarp" x="752" y="464">
+  <object id="83" name="AdminWarp" x="520" y="184">
    <point/>
   </object>
   <object id="12" gid="2147483957" x="504" y="720" width="32" height="33">
