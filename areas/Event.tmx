@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.12.2" orientation="isometric" renderorder="right-down" width="30" height="40" tilewidth="64" tileheight="32" infinite="0" nextlayerid="7" nextobjectid="371">
+<map version="1.10" tiledversion="1.12.2" orientation="isometric" renderorder="right-down" width="30" height="40" tilewidth="64" tileheight="32" infinite="0" nextlayerid="7" nextobjectid="374">
  <properties>
   <property name="Background" value="custom"/>
   <property name="Background Animation" value="/server/assets/bg/09-graveyard.animation"/>
@@ -23,6 +23,8 @@
  <tileset firstgid="466" source="../assets/Blank.tsx"/>
  <tileset firstgid="467" source="../assets/rainbow_floor.tsx"/>
  <tileset firstgid="483" source="../assets/Holiday/Candies.tsx"/>
+ <tileset firstgid="519" source="../assets/Gate_sky2_exe6.tsx"/>
+ <tileset firstgid="529" source="../assets/EXE6_boss_markers.tsx"/>
  <layer id="1" name="Ground 1" width="30" height="40">
   <data encoding="csv">
 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,
@@ -186,7 +188,7 @@
    <point/>
   </object>
   <object id="4" gid="2147484110" x="392" y="144" width="40" height="72"/>
-  <object id="5" name="CandyBBS" type="CandyBBS" gid="2147484113" x="552" y="88" width="32" height="56">
+  <object id="5" name="CandyBBS" type="MazeBBS" gid="2147484113" x="552" y="88" width="32" height="56">
    <properties>
     <property name="Color" type="color" value="#ffaa00ff"/>
     <property name="Name" value="Candy_Records"/>
@@ -262,13 +264,10 @@
     <property name="Sound 4" value="/server/assets/sfx/Candy4.ogg"/>
    </properties>
   </object>
-  <object id="363" type="Radius Item" gid="483" x="432" y="1272" width="28" height="86">
+  <object id="363" gid="483" x="369" y="1339" width="28" height="86" visible="0">
    <properties>
-    <property name="Dont Notify" type="bool" value="true"/>
     <property name="Event" value="trickortreat"/>
-    <property name="Item" type="object" value="364"/>
     <property name="Radius" type="float" value="2"/>
-    <property name="Sound" value="/server/assets/sfx/Candy1.ogg"/>
    </properties>
   </object>
   <object id="303" type="Radius Item" gid="483" x="240" y="1008" width="14" height="43">
@@ -824,7 +823,9 @@
   <object id="35" type="Radius Item" gid="487" x="880" y="336" width="14" height="43">
    <properties>
     <property name="Dont Notify" type="bool" value="true"/>
+    <property name="Event" value="mazetimer"/>
     <property name="Item" type="object" value="17"/>
+    <property name="Radius" type="float" value="1.5"/>
     <property name="Sound 1" value="/server/assets/sfx/Candy1.ogg"/>
     <property name="Sound 2" value="/server/assets/sfx/Candy2.ogg"/>
     <property name="Sound 3" value="/server/assets/sfx/Candy3.ogg"/>
@@ -3750,19 +3751,10 @@
    </properties>
    <point/>
   </object>
-  <object id="364" type="Item" x="432" y="1320">
-   <properties>
-    <property name="Amount" type="int" value="10"/>
-    <property name="Description" value="Yum"/>
-    <property name="Name" value="Candy"/>
-    <property name="Type" value="item"/>
-   </properties>
-   <point/>
-  </object>
   <object id="366" name="Finish" x="560" y="128">
    <point/>
   </object>
-  <object id="368" name="Start" type="Radius Warp" x="520" y="1040">
+  <object id="368" name="Start" type="Radius Warp" x="944" y="336">
    <properties>
     <property name="Activation Radius" type="float" value="0.5"/>
     <property name="Arrival Animation" value="arrow_down_right_in"/>
@@ -3772,7 +3764,7 @@
    </properties>
    <point/>
   </object>
-  <object id="369" name="ToStart" type="Radius Warp" x="400" y="128">
+  <object id="369" name="ToStart" type="Radius Warp" x="408" y="128">
    <properties>
     <property name="Activation Radius" type="float" value="0.5"/>
     <property name="Arrival Animation" value="arrow_up_left_in"/>
@@ -3783,5 +3775,12 @@
    <point/>
   </object>
   <object id="370" gid="2147484110" x="976" y="352" width="40" height="72"/>
+  <object id="373" type="Radius Item" gid="2147484183" x="412.5" y="1215.5" width="64" height="32">
+   <properties>
+    <property name="Event" value="trickortreat"/>
+    <property name="Keep" type="bool" value="true"/>
+    <property name="Radius" type="float" value="2"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>

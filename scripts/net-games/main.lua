@@ -2158,6 +2158,7 @@ end
 
 function frame.pause_timer(timer_id, player_id)
     Displayer.Timer.pausePlayerTimer(player_id, timer_id)
+    return Displayer.Timer.pausePlayerTimer(player_id, timer_id)
 end
 
 function frame.remove_timer(timer_id, player_id)

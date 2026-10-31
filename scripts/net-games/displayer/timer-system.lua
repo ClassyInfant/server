@@ -212,6 +212,7 @@ end
 function Timer:pausePlayerTimer(player_id, timer_id)
     if self.timers[player_id] and self.timers[player_id][timer_id] then
         self.timers[player_id][timer_id].paused = true
+        return self.timers[player_id][timer_id]
     end
 end
 

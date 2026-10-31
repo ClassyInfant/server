@@ -17,8 +17,8 @@ local function on_radius_item_triggered(event)
             --Run function in collection_events 
             local script = event.object.custom_properties["Event"]
             if script then
-              print(event.player_id,script,event.object.id,player_area)
-              events.load_event(event.player_id,script,event.object.id,player_area)
+              --print(event.player_id,script,event.object.id,player_area)
+              events.load_event(event.player_id,script,event.object,player_area)
             end
 
             --Give the player an item - obj
@@ -69,8 +69,12 @@ local function on_radius_item_triggered(event)
                 ezmemory.hide_object_from_player(event.player_id,player_area,event.object.id)
             end
         end
-        
-        ezmemory.hide_object_from_player_till_disconnect(event.player_id,player_area,event.object.id)
+        local keep = event.object.custom_properties["Keep"]
+        if keep then
+            return
+        else
+            ezmemory.hide_object_from_player_till_disconnect(event.player_id,player_area,event.object.id)
+        end
     end)
 end
 
