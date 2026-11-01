@@ -25,6 +25,8 @@ function eztriggers.add_location_event_trigger(area_id,object)
             emitter = eztriggers.add_radius_trigger(area_id, object, object.width, object.height, object.width/2,object.height/2)
         elseif collision_shape_type == "rect" then
             emitter = eztriggers.add_rectangle_trigger(area_id, object, object.width, object.height)
+        elseif collision_shape_type =="tile" then
+            emitter = eztriggers.add_rectangle_trigger(area_id, object, object.width, object.height)
         else
             -- no satisfied condition
             warn("[eztriggers] No collision shape supported: "..collision_shape_type)

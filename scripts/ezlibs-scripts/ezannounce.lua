@@ -29,16 +29,7 @@ ezannounce.ANNOUNCEMENTS = {
   --   notify_message = "New server announcement in your inbox!",
   -- },
 
---  {
---    id = "ANN_180226_1",
---	icon = 1,
---	title = "Welcome",
---	from = "ShaDisNX255",
---	body = "Hey there, welcome to my server. I hope you have fun. We've got fishing, ice puzzles, dueling and a bit of a story in WCity. Feel free to leave your suggestions over at the BBS!\n -ShaDis",
---	mug_texture_path = "/server/assets/ezlibs-assets/eznpcs/mug/luigi-idle.png",
---	mug_animation_path = "/server/assets/ezlibs-assets/eznpcs/mug/mug.animation",
---	notify_message = "Looks like you got a new e-mail",
---  },
+
 }
 
 local function _get_email_bucket(player_id)
