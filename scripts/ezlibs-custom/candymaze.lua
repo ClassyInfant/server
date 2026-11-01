@@ -182,7 +182,7 @@ local function _open_mazebbs(pid)
         id     = '__mazebbs:post:' .. i,
         read   = true,
         title  = string.format('%2d  %s', i, nm),
-        author = string.format('%.1f pts', wt),
+        author = string.format('%i pts', wt),
       }
       if i >= LBmax then break end  -- was hardcoded 10
     end
